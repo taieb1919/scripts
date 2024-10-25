@@ -205,33 +205,37 @@
     font-weight: 700;
 }
 
-
+/*************   toast notification       ***************/
+/* Container to hold all toasts vertically in the bottom-right */
 .tibou-analytix-toast-container {
     position: fixed;
-    top: 25px;
+    bottom: 25px; /* Position from the bottom */
     right: 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse; /* Stack new toasts from bottom up */
     gap: 15px; /* Spacing between toasts */
     z-index: 1000;
+    pointer-events: none; /* Allow clicks to pass through container */
 }
 
-
+/* Individual toasts are interactive */
 .tibou-analytix-toast {
-    top: 25px;
-    right: 30px;
+    width: 300px;
     border-radius: 12px;
     background: #fff;
     padding: 20px 35px 20px 25px;
     box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transform: translateX(calc(100% + 30px));
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    pointer-events: auto; /* Make toasts themselves clickable */
 }
 
+/* Show toast with animation */
 .tibou-analytix-toast.tibou-analytix-active {
-    transform: translateX(0%);
+    transform: translateX(0);
 }
+
 
 .tibou-analytix-toast .tibou-analytix-toast-content {
     display: flex;

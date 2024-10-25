@@ -18,32 +18,39 @@ var toastHtml= `
     const alerts = {
         info: {
             Icon:"fa-info",
-            color: "info"
+            color: "info",
+            Title: "Information"
         },
         error: {
             Icon:"fa-bug",
-            color: "error"
+            color: "error",
+            Title: "Error"
         },
         warning: {
             Icon:"fa-triangle-exclamation",
-            color: "warning"
+            color: "warning",
+            Title: "Warning"
         },
         success: {
             Icon:"fa-check",
-            color: "success"
+            color: "success",
+            Title: "Success"
         }
     };
     let component = document.createElement("div");
     component.innerHTML = toastHtml;
-
+    
+    
     notificationBox.appendChild(component);
     const toast = component.querySelector(".tibou-analytix-toast");
     (progress = component.querySelector(".tibou-analytix-progress")),
+        (titleSpan = component.querySelector(".tibou-analytix-text-1")),
         (textSpan = component.querySelector(".tibou-analytix-text-2")),
         (iconSelector = component.querySelector(".tibou-analytix-check")),
         (closeIcon = component.querySelector(".tibou-analytix-close"));
 
     textSpan.textContent=text;
+    titleSpan.textContent=alerts[type].Title;
     
     let timer1, timer2;
 
@@ -69,7 +76,7 @@ var toastHtml= `
         setTimeout(() => {
             progress.classList.remove("tibou-analytix-active");
         }, 300);
-
+        notificationBox.removeChild(component);
         clearTimeout(timer1);
         clearTimeout(timer2);
     });
@@ -78,7 +85,10 @@ var toastHtml= `
     //component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
 
     setTimeout(() => {
-        notificationBox.removeChild(component);
+        if (notificationBox.contains(component)) {
+            // Only remove the child if it exists in the parent
+            notificationBox.removeChild(component);
+        }
     }, 5700);
     
 }
