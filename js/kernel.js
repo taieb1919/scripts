@@ -31,6 +31,32 @@
 }
 
 
+function loadScript(url) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = url;
+        script.async = false;
+        script.onload = () => {
+            console.log(`Loaded: ${url}`);
+            resolve();
+        };
+        script.onerror = () => reject(`Failed to load: ${url}`);
+        document.head.appendChild(script);
+    });
+}
+
+// Function to dynamically load a CSS file
+function loadCSS(url) {
+    return new Promise((resolve, reject) => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = url;
+        link.onload = () => resolve(console.log(`CSS Loaded: ${url}`));
+        link.onerror = () => reject(`Failed to load CSS: ${url}`);
+        document.head.appendChild(link);
+    });
+}
+
 function ImportFonts() {
     // Define the URLs for the fonts
     const fontUrls = [
@@ -38,7 +64,6 @@ function ImportFonts() {
         "https://fonts.googleapis.com/css?family=Nunito:400,700",
         "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
     ];
-
     // Loop through each URL and create a <link> element
     fontUrls.forEach((url) => {
         const link = document.createElement("link");
@@ -46,6 +71,39 @@ function ImportFonts() {
         link.href = url;
         document.head.appendChild(link);
     });
+
+
+// Load jQuery 1.12.4, then Bootstrap JavaScript
+    loadScript("https://code.jquery.com/jquery-1.12.4.min.js")
+        .then(() => {
+            // Avoid conflicts with existing jQuery versions
+            const jq = jQuery.noConflict(true);
+            window.jQuery = jq;
+            window.$ = jq;
+
+            // Now load Bootstrap JavaScript after jQuery
+            return loadScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
+        })
+        .then(() => {
+            console.log("Bootstrap and jQuery loaded.");
+
+            // Verify if Bootstrap's modal function is available
+            console.log("jQuery version:", jQuery.fn.jquery);
+            console.log("Bootstrap modal function:", $.fn.modal);
+
+
+        })
+        .catch((error) => {
+            console.error("Error loading scripts:", error);
+        });
+
+// Alternative URLs for Bootstrap 3.3.7 CSS
+    const bootstrapCDN = "https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+    const jsdelivrCDN = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";
+
+// Test loading from StackPath
+    loadCSS(bootstrapCDN)
+        .catch(() => loadCSS(jsdelivrCDN));
 }
 
 function AppendNotificationDiv() {
@@ -62,5 +120,10 @@ function AppendNotificationDiv() {
 
     // Append the notification box to the body
     document.body.appendChild(notificationBox);
+
+    AppendYesNoModal();
 }
+
+
+
 
