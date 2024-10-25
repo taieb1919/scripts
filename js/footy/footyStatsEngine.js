@@ -5,24 +5,24 @@
     });
 
 
-    const myButton2 = document.getElementById("tibou-analytix-menu-btn1");
+    const myButton2 = document.getElementById("tibou-analytix-menu-btn2");
     myButton2.addEventListener("click", function () {
         SendErrorMessage("errorrrrr  !");
     });
 
 
-    const myButton3 = document.getElementById("tibou-analytix-menu-btn1");
+    const myButton3 = document.getElementById("tibou-analytix-menu-btn3");
     myButton3.addEventListener("click", function () {
         SendWarningMessage("WARNNNNNNNNNNNN!");
     });
 
 
-    const myButton4 = document.getElementById("tibou-analytix-menu-btn1");
+    const myButton4 = document.getElementById("tibou-analytix-menu-btn4");
     myButton4.addEventListener("click", function () {
         SendSuccessMessage("Winnnnnnnn");
     });
 
-    const myButton5 = document.getElementById("tibou-analytix-menu-btn1");
+    const myButton5 = document.getElementById("tibou-analytix-menu-btn5");
     myButton5.addEventListener("click", function () {
         SendInfoMessage("good job");
     });
@@ -31,7 +31,7 @@
 
 async function initMenuTopRight() {
     ImportFonts();
-    AppendNotificationDiv();
+    
     var menuHtml = `
         <ul id="tibou-analytix-menu">
     <li><button id="tibou-analytix-menu-btn1" class="one">Filter predictions</button></li>
@@ -44,7 +44,7 @@ async function initMenuTopRight() {
         </ul>
     `;
     await AddMenusAndLodAllFile(menuHtml);
-
+    AppendNotificationDiv();
 
     AddButtonEventListeners();
 }

@@ -52,12 +52,13 @@ function AppendNotificationDiv() {
     const notificationBox = document.createElement("div");
 
     // Set the classes for styling
-    notificationBox.className = "notification-box flex flex-col items-center justify-center fixed w-full z-50 p-3";
+    notificationBox.className = "notification-box tibou-analytix-toast-container";
 
     // Position the notification box at the bottom-right of the page
     notificationBox.style.position = "fixed";
     notificationBox.style.bottom = "20px";
     notificationBox.style.right = "20px";
+    notificationBox.style.zIndex = "99999999999999";
 
     // Append the notification box to the body
     document.body.appendChild(notificationBox);

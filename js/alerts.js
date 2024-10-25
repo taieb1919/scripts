@@ -1,55 +1,86 @@
 ﻿function sendNotification(type, text) {
 
     let notificationBox = document.querySelector(".notification-box");
+var toastHtml= `
+        <div class="tibou-analytix-toast tibou-analytix-active">
+            <div class="tibou-analytix-toast-content">
+                <i class="fas fa-solid tibou-analytix-check"></i>
+                <div class="tibou-analytix-message">
+                    <span class="tibou-analytix-text tibou-analytix-text-1">Success</span>
+                    <span class="tibou-analytix-text tibou-analytix-text-2">Your changes have been saved</span>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark tibou-analytix-close"></i>
+            <div class="tibou-analytix-progress tibou-analytix-active"></div>
+        </div>
+    `
     
     const alerts = {
         info: {
-            icon: `<svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>`,
-            color: "blue-500"
+            Icon:"fa-info",
+            color: "info"
         },
         error: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>`,
-            color: "red-500"
+            Icon:"fa-bug",
+            color: "error"
         },
         warning: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-</svg>`,
-            color: "yellow-500"
+            Icon:"fa-triangle-exclamation",
+            color: "warning"
         },
         success: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>`,
-            color: "green-500"
+            Icon:"fa-check",
+            color: "success"
         }
     };
     let component = document.createElement("div");
-    component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
-    component.innerHTML = `${alerts[type].icon}<p>${text}</p>`;
+    component.innerHTML = toastHtml;
+
     notificationBox.appendChild(component);
+    const toast = component.querySelector(".tibou-analytix-toast");
+    (progress = component.querySelector(".tibou-analytix-progress")),
+        (textSpan = component.querySelector(".tibou-analytix-text-2")),
+        (iconSelector = component.querySelector(".tibou-analytix-check")),
+        (closeIcon = component.querySelector(".tibou-analytix-close"));
+
+    textSpan.textContent=text;
+    
+    let timer1, timer2;
+
+    iconSelector.classList.add(alerts[type].Icon);
+    iconSelector.classList.add(alerts[type].color);
+    
+    toast.classList.add("tibou-analytix-active");
+    progress.classList.add("tibou-analytix-active");
+    progress.classList.add(alerts[type].color);
+
+    timer1 = setTimeout(() => {
+        toast.classList.remove("tibou-analytix-active");
+    }, 5000); //1s = 1000 milliseconds
+
+    timer2 = setTimeout(() => {
+        progress.classList.remove("tibou-analytix-active");
+    }, 5300);
+
+
+    closeIcon.addEventListener("click", () => {
+        toast.classList.remove("tibou-analytix-active");
+
+        setTimeout(() => {
+            progress.classList.remove("tibou-analytix-active");
+        }, 300);
+
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+    });
+
+    
+    //component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
+
     setTimeout(() => {
-        component.classList.remove("opacity-0");
-        component.classList.add("opacity-1");
-    }, 1); //1ms For fixing opacity on new element
-    setTimeout(() => {
-        component.classList.remove("opacity-1");
-        component.classList.add("opacity-0");
-        //component.classList.add("-translate-y-80"); //it's a little bit buggy when send multiple alerts
-        component.style.margin = 0;
-        component.style.padding = 0;
-    }, 5000);
-    setTimeout(() => {
-        component.style.setProperty("height", "0", "important");
-    }, 5100);
-    /*setTimeout(() => {
         notificationBox.removeChild(component);
-    }, 5700);*/
-    //If you can do something more elegant than timeouts, please do, but i can't
+    }, 5700);
+    
 }
 
 
