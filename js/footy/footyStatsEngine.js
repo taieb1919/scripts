@@ -1,7 +1,11 @@
 ﻿function AddButtonEventListeners() {
     const myButton1 = document.getElementById("tibou-analytix-menu-btn1");
     myButton1.addEventListener("click", function () {
-        SendInfoMessage("hello");
+        ShowYesNoModal("Cleaning up games","you want keep only games for : ","Today","Tomorrow",function (choice){
+            
+            SendSuccessMessage(choice);
+            
+        });
     });
 
 

@@ -38,7 +38,20 @@ function ImportFonts() {
         "https://fonts.googleapis.com/css?family=Nunito:400,700",
         "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
     ];
-
+  /*  
+    const scripts = [
+        {
+            src: "https://code.jquery.com/jquery-1.12.0.min.js",
+            integrity: "", // No integrity attribute provided for this script
+            crossorigin: ""
+        },
+        {
+            src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
+            integrity: "sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",
+            crossorigin: "anonymous"
+        }
+    ];
+*/
     // Loop through each URL and create a <link> element
     fontUrls.forEach((url) => {
         const link = document.createElement("link");
@@ -46,6 +59,20 @@ function ImportFonts() {
         link.href = url;
         document.head.appendChild(link);
     });
+
+/*
+    scripts.forEach(({ src, integrity, crossorigin }) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.type = "text/javascript";
+        script.async = false; // Ensures scripts load in order
+
+        // Add integrity and crossorigin if provided
+        if (integrity) script.integrity = integrity;
+        if (crossorigin) script.crossOrigin = crossorigin;
+
+        document.head.appendChild(script);
+    });*/
 }
 
 function AppendNotificationDiv() {
@@ -62,5 +89,7 @@ function AppendNotificationDiv() {
 
     // Append the notification box to the body
     document.body.appendChild(notificationBox);
+
+    AppendYesNoModal();
 }
 
