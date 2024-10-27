@@ -28,9 +28,11 @@
     menuContainer.style.right = "40px";
     menuContainer.style.zIndex = "9999999999999"; // Ensure it stays on top of other elements
     document.body.appendChild(menuContainer);
+
+    AppendYesNoModal();
 }
 
-
+// region Importing cs and js files 
 function loadScript(url) {
     return new Promise((resolve, reject) => {
         const script = document.createElement("script");
@@ -100,29 +102,61 @@ function ImportFonts() {
 // Alternative URLs for Bootstrap 3.3.7 CSS
     const bootstrapCDN = "https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
     const jsdelivrCDN = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";
+    const analytixStylecss = "https://raw.githubusercontent.com/taieb1919/scripts/refs/heads/main/styles/analytixStyle.css";
+    const modalCss = "https://raw.githubusercontent.com/taieb1919/scripts/refs/heads/main/styles/Modal.css";
 
 // Test loading from StackPath
     loadCSS(bootstrapCDN)
         .catch(() => loadCSS(jsdelivrCDN));
+    //loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
+    
+    loadCSS(analytixStylecss)
+        .then(async () => {
+            // Fetch the CSS content
+            let contentCssFile = "";
+            try {
+                const response = await fetch(
+                    analytixStylecss
+                );
+                if (response.ok) {
+                    contentCssFile = await response.text();
+                } else {
+                    console.error("Failed to load CSS file analytixStyle.");
+                }
+            } catch (error) {
+                console.error("Error fetching CSS analytixStyle :", error);
+            }
+
+            // Apply the fetched CSS content
+            const style = document.createElement("style");
+            style.textContent = contentCssFile;
+            document.head.appendChild(style);
+        });
+    loadCSS(modalCss)
+        .then(async () => {
+            // Fetch the CSS content
+            let contentCssFile = "";
+            try {
+                const response = await fetch(
+                    modalCss
+                );
+                if (response.ok) {
+                    contentCssFile = await response.text();
+                } else {
+                    console.error("Failed to load CSS file analytixStyle.");
+                }
+            } catch (error) {
+                console.error("Error fetching CSS analytixStyle :", error);
+            }
+
+            // Apply the fetched CSS content
+            const style = document.createElement("style");
+            style.textContent = contentCssFile;
+            document.head.appendChild(style);
+        });
 }
+// endregion Importing cs and js files 
 
-function AppendNotificationDiv() {
-    const notificationBox = document.createElement("div");
-
-    // Set the classes for styling
-    notificationBox.className = "notification-box flex flex-col items-center justify-center fixed w-full z-50 p-3 tibou-analytix-toast-container";
-
-    // Position the notification box at the bottom-right of the page
-    notificationBox.style.position = "fixed";
-    notificationBox.style.bottom = "20px";
-    notificationBox.style.right = "20px";
-    notificationBox.style.zIndex = "99999999999999";
-
-    // Append the notification box to the body
-    document.body.appendChild(notificationBox);
-
-    AppendYesNoModal();
-}
 
 
 

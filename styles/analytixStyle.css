@@ -207,7 +207,7 @@
 
 /*************   toast notification       ***************/
 /* Container to hold all toasts vertically in the bottom-right */
-.tibou-analytix-toast-container {
+.tibou-analytix-notification-box .toast-container {
     position: fixed;
     bottom: 25px; /* Position from the bottom */
     right: 30px;
@@ -219,7 +219,7 @@
 }
 
 /* Individual toasts are interactive */
-.tibou-analytix-toast {
+.tibou-analytix-notification-box .toast {
     width: 300px;
     border-radius: 12px;
     background: #fff;
@@ -232,17 +232,17 @@
 }
 
 /* Show toast with animation */
-.tibou-analytix-toast.tibou-analytix-active {
+.tibou-analytix-notification-box .toast.active {
     transform: translateX(0);
 }
 
 
-.tibou-analytix-toast .tibou-analytix-toast-content {
+.tibou-analytix-notification-box .toast .toast-content {
     display: flex;
     align-items: center;
 }
 
-.tibou-analytix-toast-content .tibou-analytix-check {
+.tibou-analytix-notification-box .toast-content .check {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,40 +255,40 @@
 }
 
 /* State styles */
-.tibou-analytix-toast-content .tibou-analytix-check.info {
+.tibou-analytix-notification-box .toast-content .check.info {
     background-color: #4070f4; /* Info - blue */
 }
 
-.tibou-analytix-toast-content .tibou-analytix-check.success {
+.tibou-analytix-notification-box .toast-content .check.success {
     background-color: #28a745; /* Success - green */
 }
 
-.tibou-analytix-toast-content .tibou-analytix-check.error {
+.tibou-analytix-notification-box .toast-content .check.error {
     background-color: #dc3545; /* Error - red */
 }
 
-.tibou-analytix-toast-content .tibou-analytix-check.warning {
+.tibou-analytix-notification-box .toast-content .check.warning {
     background-color: #ffc107; /* Warning - yellow */
 }
 
-.tibou-analytix-toast-content .tibou-analytix-message {
+.tibou-analytix-notification-box .toast-content .message {
     display: flex;
     flex-direction: column;
     margin: 0 20px;
 }
 
-.tibou-analytix-message .tibou-analytix-text {
+.tibou-analytix-notification-box .message .text {
     font-size: 16px;
     font-weight: 400;
     color: #666666;
 }
 
-.tibou-analytix-message .tibou-analytix-text.tibou-analytix-text-1 {
+.tibou-analytix-notification-box .message .text.text-1 {
     font-weight: 600;
     color: #333;
 }
 
-.tibou-analytix-toast .tibou-analytix-close {
+.tibou-analytix-notification-box .toast .close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -297,11 +297,11 @@
     opacity: 0.7;
 }
 
-.tibou-analytix-toast .tibou-analytix-close:hover {
+.tibou-analytix-notification-box .toast .close:hover {
     opacity: 1;
 }
 
-.tibou-analytix-toast .tibou-analytix-progress {
+.tibou-analytix-notification-box .toast .progressToast {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -310,7 +310,7 @@
 
 }
 
-.tibou-analytix-toast .tibou-analytix-progress:before {
+.tibou-analytix-notification-box .toast .progressToast:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -320,22 +320,22 @@
     background-color: #4070f4;
 }
 /* State-specific colors */
-.tibou-analytix-toast .tibou-analytix-progress.info:before {
+.tibou-analytix-notification-box .toast .progressToast.info:before {
     background-color: #4070f4; /* Info - blue */
 }
 
-.tibou-analytix-toast .tibou-analytix-progress.success:before {
+.tibou-analytix-notification-box .toast .progressToast.success:before {
     background-color: #28a745; /* Success - green */
 }
 
-.tibou-analytix-toast .tibou-analytix-progress.error:before {
+.tibou-analytix-notification-box .toast .progressToast.error:before {
     background-color: #dc3545; /* Error - red */
 }
 
-.tibou-analytix-toast .tibou-analytix-progress.warning:before {
+.tibou-analytix-notification-box .toast .progressToast.warning:before {
     background-color: #ffc107; /* Warning - yellow */
 }
-.tibou-analytix-progress.tibou-analytix-active:before {
+.tibou-analytix-notification-box .progressToast.active:before {
     animation: progress 5s linear forwards;
 }
 
@@ -345,7 +345,7 @@
     }
 }
 
-button {
+.tibou-analytix-notification-box button {
     padding: 12px 20px;
     font-size: 20px;
     outline: none;
@@ -357,14 +357,13 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.tibou-analytix-notification-box button:hover {
     background-color: #0e4bf1;
 }
 
-.tibou-analytix-toast.tibou-analytix-active ~ button {
+.tibou-analytix-notification-box .toast.active ~ button {
     pointer-events: none;
 }
-
 
 
 

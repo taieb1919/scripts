@@ -1,18 +1,39 @@
-﻿function sendNotification(type, text) {
+﻿function AppendNotificationDiv() {
+    const notificationBox = document.createElement("div");
 
-    let notificationBox = document.querySelector(".notification-box");
+    // Set the classes for styling
+    notificationBox.className = "tibou-analytix-notification-box tibou-analytix-toast-container flex flex-col items-center justify-center fixed w-full z-50 p-3 ";
+
+    // Position the notification box at the bottom-right of the page
+    notificationBox.style.position = "fixed";
+    notificationBox.style.bottom = "20px";
+    notificationBox.style.right = "20px";
+    notificationBox.style.zIndex = "99999999999999";
+
+    // Append the notification box to the body
+    document.body.appendChild(notificationBox);
+
+}
+
+function sendNotification(type, text) {
+
+    let notificationBox = document.querySelector(".tibou-analytix-notification-box");
 var toastHtml= `
-        <div class="tibou-analytix-toast tibou-analytix-active">
-            <div class="tibou-analytix-toast-content">
-                <i class="fas fa-solid tibou-analytix-check"></i>
-                <div class="tibou-analytix-message">
-                    <span class="tibou-analytix-text tibou-analytix-text-1">Success</span>
-                    <span class="tibou-analytix-text tibou-analytix-text-2">Your changes have been saved</span>
-                </div>
-            </div>
-            <i class="fa-solid fa-xmark tibou-analytix-close"></i>
-            <div class="tibou-analytix-progress tibou-analytix-active"></div>
-        </div>
+       <div class="toast active">
+  
+  <div class="toast-content">
+    <i class="fas fa-solid  check"></i>
+
+    <div class="message">
+      <span class="text text-1">Success</span>
+      <span class="text text-2">Your changes has been saved</span>
+    </div>
+  </div>
+  <i class="fa-solid fa-xmark close"></i>
+
+  <!-- Remove 'active' class, this is just to show in Codepen thumbnail -->
+  <div class="progressToast active"></div>
+</div>
     `
     
     const alerts = {
@@ -42,12 +63,12 @@ var toastHtml= `
     
     
     notificationBox.appendChild(component);
-    const toast = component.querySelector(".tibou-analytix-toast");
-    (progress = component.querySelector(".tibou-analytix-progress")),
-        (titleSpan = component.querySelector(".tibou-analytix-text-1")),
-        (textSpan = component.querySelector(".tibou-analytix-text-2")),
-        (iconSelector = component.querySelector(".tibou-analytix-check")),
-        (closeIcon = component.querySelector(".tibou-analytix-close"));
+    const toast = component.querySelector(".toast");
+    (progress = component.querySelector(".progressToast")),
+        (titleSpan = component.querySelector(".text-1")),
+        (textSpan = component.querySelector(".text-2")),
+        (iconSelector = component.querySelector(".check")),
+        (closeIcon = component.querySelector(".close"));
 
     textSpan.textContent=text;
     titleSpan.textContent=alerts[type].Title;
@@ -57,32 +78,29 @@ var toastHtml= `
     iconSelector.classList.add(alerts[type].Icon);
     iconSelector.classList.add(alerts[type].color);
     
-    toast.classList.add("tibou-analytix-active");
-    progress.classList.add("tibou-analytix-active");
+    toast.classList.add("active");
+    progress.classList.add("active");
     progress.classList.add(alerts[type].color);
 
     timer1 = setTimeout(() => {
-        toast.classList.remove("tibou-analytix-active");
+        toast.classList.remove("active");
     }, 5000); //1s = 1000 milliseconds
 
     timer2 = setTimeout(() => {
-        progress.classList.remove("tibou-analytix-active");
+        progress.classList.remove("active");
     }, 5300);
 
 
     closeIcon.addEventListener("click", () => {
-        toast.classList.remove("tibou-analytix-active");
+        toast.classList.remove("active");
 
         setTimeout(() => {
-            progress.classList.remove("tibou-analytix-active");
+            progress.classList.remove("active");
         }, 300);
         notificationBox.removeChild(component);
         clearTimeout(timer1);
         clearTimeout(timer2);
     });
-
-    
-    //component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
 
     setTimeout(() => {
         if (notificationBox.contains(component)) {

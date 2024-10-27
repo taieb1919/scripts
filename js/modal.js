@@ -1,25 +1,40 @@
-﻿function AppendYesNoModal() {
+﻿// region  Modal
+// region  yes no Modal
+// Function to display the modal
+function openYesNoModal() {
+
+    $(".tibou-analytix-modal-internal .modalcontainer,.modal").fadeOut("slow");
+}
+
+// Function to close the modal
+function closeYesNoModal() {
+
+    $(".tibou-analytix-modal-internal .modalcontainer,.modal").fadeIn("slow");
+
+}
+// endregion  yes no Modal
+function AppendYesNoModal() {
     const modalHTML = `
-<div class="tibou-analytix-modal-box">
-                <!-- Modal -->
-                <div class="modal fade" id="myModalYesNo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="tibou-analytix-modal-dialog" role="document">
-                        <div class="tibou-analytix-modal-content clearfix">
-                            <button type="button" class="tibou-analytix-modal-close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <div class="tibou-analytix-modal-body">
-                                <h3 class="tibou-analytix-modal-title">massa vitae mi mollis.</h3>
-                                <p class="tibou-analytix-modal-description">
-                                    Nam venenatis nisl sed lacus varius, gravida fringilla sem maximus. Sed diam metus, malesuada sed sollicitudin eu, fermentum quis sapien.
-                                </p>
-                                <button id="tibou-analytix-YesNoModal-NoResponse" class="tibou-analytix-modal-subscribe tibou-analytix-modal-cancel">Not Yet</button>
-                                <button id="tibou-analytix-YesNoModal-YesResponse" class="tibou-analytix-modal-subscribe">Get premium</button>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>`;
+<div class="tibou-analytix-modal-internal" id="tibou-analytix-modal-internal">
+<div class="flex">
+    <div class="modalcontainer">
+        <div class="flex">
+            <div class="modal">
+                <div class="close"><span>&#43;</span></div>
+                <div class="content">
+                    <h2>Modal title</h2>
+                    <p>Let's go up in here, and start having some fun The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it. It's a super day, so why not make a beautiful sky?</p>
+                </div>
+                
+                <div class="buttons">
+                    <a href="#0">Cancel</a>
+                    <a href="#0">Accept</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#0" class="modalbttn">Open Modal</a>
+</div>`;
 
     const modalContainer = document.createElement("div");
     modalContainer.innerHTML = modalHTML;
@@ -27,33 +42,20 @@
 
 }
 
-// Function to display the modal
-function openYesNoModal() {
-
-    $("#myModalYesNo").modal("show");
-}
-
-// Function to close the modal
-function closeYesNoModal() {
-
-    $("#myModalYesNo").modal("hide");
-    
-}
-
 
 function ShowYesNoModal(titleModal, descriptionModal, yesText, noText, callback) {
 
 
-    const myModalYesNo = document.getElementById("myModalYesNo");
-    const myModalTitle = myModalYesNo.querySelector(".tibou-analytix-modal-title");
-    const myModalDescription = myModalYesNo.querySelector(".tibou-analytix-modal-description");
+    const myModalYesNo = document.getElementById("tibou-analytix-modal-internal");
+    const myModalTitle = myModalYesNo.querySelector(".tibou-analytix-modal-internal .content h2");
+    const myModalDescription = myModalYesNo.querySelector(".tibou-analytix-modal-internal .content p");
 
     myModalTitle.textContent = titleModal;
     myModalDescription.textContent = descriptionModal;
 
+    const noButton = document.querySelector('.tibou-analytix-modal-internal .buttons a:first-of-type');
+    const yesButton = document.querySelector('.tibou-analytix-modal-internal .buttons a:last-of-type');
 
-    const yesButton = myModalYesNo.querySelector("#tibou-analytix-YesNoModal-YesResponse");
-    const noButton = myModalYesNo.querySelector("#tibou-analytix-YesNoModal-NoResponse");
     yesButton.textContent = yesText;
     noButton.textContent = noText;
 
@@ -87,3 +89,5 @@ function ShowYesNoModal(titleModal, descriptionModal, yesText, noText, callback)
 
     openYesNoModal();
 }
+
+// endregion  Modal
