@@ -3,61 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
-    <link rel="stylesheet"   href="../styles/analytixStyle.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../styles/css/all.min.css" >
-    <link rel="stylesheet" href="../styles/modal.css" >
+    <link rel="stylesheet" href="../styles/analytixStyle.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../styles/css/all.min.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" async="" src="../js/modal.js"></script>
     <script type="text/javascript" async="" src="../js/alerts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"
+            type="text/javascript"></script>
     <script type="text/javascript" async="" src="../js/kernel.js"></script>
     <script type="text/javascript" async="" src="../js/footy/footyStatsEngine.js"></script>
     <script type="text/javascript">
 
-        $(document).ready(function() {
-            $(".tibou-analytix-modal-internal .modalbttn").click(function() {
+        $(document).ready(function () {
+            $(".tibou-analytix-modal-internal .modalbttn").click(function () {
                 $(".modalcontainer,.modal").fadeIn("slow");
             });
 
-            $(".tibou-analytix-modal-internal .close,tibou-analytix-modal-internal .buttons").click(function() {
+            $(".tibou-analytix-modal-internal .close,tibou-analytix-modal-internal .buttons").click(function () {
                 $(".modalcontainer,.modal").fadeOut("slow");
             });
         });
-        document.addEventListener("DOMContentLoaded", function() {
-           // initMenuTopRight();
-            
-            
-        
+        document.addEventListener("DOMContentLoaded", function () {
+            // initMenuTopRight();
+
+
             // // Your function or code to run after the document is loaded
             // console.log("Document is fully loaded!");
             // // Call your function here
-      
+
         });
-        
-        
+
+
     </script>
 </head>
 <body>
 <div class="tibou-analytix-modal-internal">
-<div class="flex">
-    <div class="modalcontainer">
-        <div class="flex">
-            <div class="modal">
-                <div class="close"><span>&#43;</span></div>
-                <div class="content">
-                    <h2>Modal title</h2>
-                    <p>Let's go up in here, and start having some fun The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it. It's a super day, so why not make a beautiful sky?</p>
-                </div>
-                <div class="buttons">
-                    <a href="#0">Cancel</a>
-                    <a href="#0">Accept</a>
+    <div class="flex">
+        <div class="modalcontainer">
+            <div class="flex">
+                <div class="modal">
+                    <div class="close"><span>&#43;</span></div>
+                    <div class="content">
+
+
+                        <h2>Modal title</h2>
+                        <p>Let's go up in here, and start having some fun The very fact that you're aware of suffering
+                            is enough reason to be overjoyed that you're alive and can experience it. It's a super day,
+                            so why not make a beautiful sky?</p>
+
+                        <form>
+                            <label for="01">One</label>
+                            <input id="01" type="radio" name="r" value="1" checked>
+                            <label for="02">Two</label>
+                            <input id="02" type="radio" name="r" value="2">
+                            <label for="03">Three</label>
+                            <input id="03" type="radio" name="r" value="3">
+                            
+<!--                            <div style="padding-bottom: 30px">-->
+                                <div class="center">
+                                    <input type="checkbox" id="cbx" style="display:none"/>
+                                    <label for="cbx" class="toggle"><span></span></label>
+                                </div>
+<!--                            </div>-->
+                        </form>
+
+
+
+                        
+                    </div>
+                    <div class="buttons">
+                        <a href="#0">Cancel</a>
+                        <a href="#0">Accept</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <a href="#0" class="modalbttn">Open Modal</a>
     </div>
-    <a href="#0" class="modalbttn">Open Modal</a>
-</div>
 </div>
 </body>
 </html>
