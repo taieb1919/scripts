@@ -1,0 +1,16 @@
+{
+  "name": "winamax",
+  "version": "1.0.0",
+  "main": "testingMethod.js",
+  "type": "module",
+  "scripts": {
+    "start": "node testingMethod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jsdom": "^25.0.1"
+  }
+}

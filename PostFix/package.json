@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "postcss-prefix-selector": "^2.1.0"
+  },
+  "scripts": {
+    "build:css": "postcss src/styles.css -o dist/styles.postfixed.css",
+    "build:html": "node postfix-html.js",
+    "build": "npm run build:css && npm run build:html"
+  }
+}

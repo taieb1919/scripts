@@ -6,4 +6,4 @@ npm install postcss postcss-cli postcss-prefix-selector --save-dev
 
 
 
-postcss styles.css -o prefixed-stylesssssssss.css
+postcss styles.css -o prefixed-styles.css

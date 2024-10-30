@@ -1,4 +1,7 @@
-﻿async function AddMenusAndLodAllFile(menuHtml) {
+﻿const repoGit = "https://github.com/taieb1919/scripts/raw/refs/heads/main/js/";
+
+
+async function AddMenusAndLodAllFile(menuHtml) {
     // Fetch the CSS content
     let contentCssFile = "";
     try {
@@ -28,8 +31,6 @@
     menuContainer.style.right = "40px";
     menuContainer.style.zIndex = "9999999999999"; // Ensure it stays on top of other elements
     document.body.appendChild(menuContainer);
-
-    AppendYesNoModal();
 }
 
 // region Importing cs and js files 
@@ -109,7 +110,7 @@ function ImportFonts() {
     loadCSS(bootstrapCDN)
         .catch(() => loadCSS(jsdelivrCDN));
     //loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
-    
+
     loadCSS(analytixStylecss)
         .then(async () => {
             // Fetch the CSS content
@@ -155,8 +156,32 @@ function ImportFonts() {
             document.head.appendChild(style);
         });
 }
-// endregion Importing cs and js files 
 
+
+// endregion Importing cs and js files 
+function loadAllNeededScripts() {
+
+
+    const defaultsScripts = [
+        "commons.js",
+        "modal.js",
+        "alerts.js",
+
+    ];
+
+
+    defaultsScripts.forEach((script) => {
+        loadScript(repoGit + script)
+            .then(() => {
+
+                console.log(`${script} loaded.`);
+            }).catch((error) => {
+                console.error(`Error loading script ${script}:`, error);
+            }
+        );
+
+    });
+}
 
 
 

@@ -1,93 +1,121 @@
 ﻿// region  Modal
 // region  yes no Modal
 // Function to display the modal
-function openYesNoModal() {
+function openMainModal() {
 
-    $(".tibou-analytix-modal-internal .modalcontainer,.modal").fadeOut("slow");
+    const mainModal = document.getElementById("main-TaiebAnalytix-Modal");
+    mainModal.classList.add("active")
 }
 
 // Function to close the modal
-function closeYesNoModal() {
+function closeMainModal() {
 
-    $(".tibou-analytix-modal-internal .modalcontainer,.modal").fadeIn("slow");
+    const mainModal = document.getElementById("main-TaiebAnalytix-Modal");
+    mainModal.classList.remove("active")
 
 }
+
+function SetModalFormHeaderTitle(text) {
+
+    document.getElementById("title-TaiebAnalytix-Modal").textContent = text;
+}
+
+function GetModalForm() {
+
+    return document.getElementById("TaiebAnalytix-Modal-form");
+}
+
+function GetModalFormContent() {
+
+    return document.getElementById("content-TaiebAnalytix-Modal-form");
+}
+
+function ClearModalFormContent() {
+
+    GetModalFormContent().innerHTML = "";
+}
+
 // endregion  yes no Modal
-function AppendYesNoModal() {
+function AppendModalBloc() {
     const modalHTML = `
-<div class="tibou-analytix-modal-internal" id="tibou-analytix-modal-internal">
-<div class="flex">
-    <div class="modalcontainer">
-        <div class="flex">
-            <div class="modal">
-                <div class="close"><span>&#43;</span></div>
-                <div class="content">
-                    <h2>Modal title</h2>
-                    <p>Let's go up in here, and start having some fun The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it. It's a super day, so why not make a beautiful sky?</p>
-                </div>
-                
-                <div class="buttons">
-                    <a href="#0">Cancel</a>
-                    <a href="#0">Accept</a>
-                </div>
+ 
+    <div class="popup-TaiebAnalytix-Modal">
+        <h2 id="title-TaiebAnalytix-Modal">Here i am</h2>
+        <a class="close-TaiebAnalytix-Modal" id="btn-close-TaiebAnalytix-Modal">&times;</a>
+        <form id="TaiebAnalytix-Modal-form" class="TaiebAnalytix-Modal-form">
+            <div id="content-TaiebAnalytix-Modal-form" class="content-TaiebAnalytix-Modal">
+
             </div>
-        </div>
+            <div class="btns-TaiebAnalytix-Modal">
+                <button class="taieb-btn red-btn" id="TaiebAnalytix-Modal-form-cancel-btn" type="button">Cancel</button>
+                <button class="taieb-btn green-btn" type="submit">Confirm</button>
+            </div>
+        </form>
     </div>
-    <a href="#0" class="modalbttn">Open Modal</a>
-</div>`;
+
+
+`;
 
     const modalContainer = document.createElement("div");
+    modalContainer.id = "main-TaiebAnalytix-Modal";
+    modalContainer.className = "overlay-TaiebAnalytix-Modal ";
     modalContainer.innerHTML = modalHTML;
     document.body.appendChild(modalContainer);
 
+    const cancelBtn = document.getElementById("TaiebAnalytix-Modal-form-cancel-btn");
+
+    const closeBtn = document.getElementById("btn-close-TaiebAnalytix-Modal");
+
+
+    closeBtn.onclick = () => closeMainModal();
+    cancelBtn.onclick = () => closeMainModal();
 }
 
+function AppendCheckBox() {
+    const checkBoxHtml = `
+    <div class="checkbox-list">
+    <label class="material-checkbox">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        One
+    </label>
 
-function ShowYesNoModal(titleModal, descriptionModal, yesText, noText, callback) {
+    <label class="material-checkbox">
+        <input type="checkbox" disabled>
+        <span class="checkmark"></span>
+        Two
+    </label>
+    <label class="material-checkbox">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        Three
+    </label>
 
+</div>
+    `;
+}
 
-    const myModalYesNo = document.getElementById("tibou-analytix-modal-internal");
-    const myModalTitle = myModalYesNo.querySelector(".tibou-analytix-modal-internal .content h2");
-    const myModalDescription = myModalYesNo.querySelector(".tibou-analytix-modal-internal .content p");
-
-    myModalTitle.textContent = titleModal;
-    myModalDescription.textContent = descriptionModal;
-
-    const noButton = document.querySelector('.tibou-analytix-modal-internal .buttons a:first-of-type');
-    const yesButton = document.querySelector('.tibou-analytix-modal-internal .buttons a:last-of-type');
-
-    yesButton.textContent = yesText;
-    noButton.textContent = noText;
-
-
-    // Clear all click event listeners
-    yesButton.onclick = null;
-
-// Add new event listener
-    yesButton.onclick = function () {
-        yesButton.disabled = true;
-        noButton.disabled = true;
-        callback(yesButton.textContent);
-        closeYesNoModal();
-        yesButton.disabled = false;
-        noButton.disabled = false;
-    };
-    // Clear all click event listeners
-    noButton.onclick = null;
-
-// Add new event listener
-    noButton.onclick = function () {
-        yesButton.disabled = true;
-        noButton.disabled = true;
-        callback(noButton.textContent);
-        closeYesNoModal();
-
-        yesButton.disabled = false;
-        noButton.disabled = false;
-    };
+function GenerateRadioButtonGroup(groupName, defaultSelected, ...choices) {
 
 
-    openYesNoModal();
+    let div = document.createElement("div");
+    div.classList.add("radio-input-TaiebAnalytix-radio_button");
+
+    choices.forEach((choice) => {
+        var checked = choice === defaultSelected ? 'checked' : '';
+        const choiceHtml = `
+        <label class="abel-TaiebAnalytix-radio_button">
+        <input type="radio" name="${groupName}" class="input-radio-TaiebAnalytix-radio_button" ${checked}>
+        <span class="span-TaiebAnalytix-radio_button">${choice}</span>
+    </label>
+        `;
+        div.insertAdjacentHTML('beforeend', choiceHtml);
+
+
+    })
+
+
+    return div;
 }
 
 // endregion  Modal

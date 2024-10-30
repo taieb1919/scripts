@@ -1,0 +1,70 @@
+.checkbox-list-TaiebAnalytix-checkBox{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+.material-checkbox-TaiebAnalytix-checkBox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #777777;
+  cursor: pointer;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark-TaiebAnalytix-checkBox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  border: 2px solid #4b0000;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked  {
+
+  font-weight: bold;
+}
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked ~ .checkmark-TaiebAnalytix-checkBox {
+  background-color: #330000;
+  border-color: #4b0000;
+  font-weight: bold;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked ~ .checkmark-TaiebAnalytix-checkBox:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 10px;
+  border: solid #c60707;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:focus ~ .checkmark-TaiebAnalytix-checkBox {
+  box-shadow: 0 0 0 2px rgba(236, 80, 80, 0.4);
+}
+
+.material-checkbox-TaiebAnalytix-checkBox:hover input[type="checkbox"] ~ .checkmark-TaiebAnalytix-checkBox {
+  border-color: #cf3434;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:disabled ~ .checkmark-TaiebAnalytix-checkBox {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:disabled ~ .checkmark-TaiebAnalytix-checkBox:hover {
+  border-color: #4d4d4d;
+}
+

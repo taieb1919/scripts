@@ -18,66 +18,65 @@
 function sendNotification(type, text) {
 
     let notificationBox = document.querySelector(".tibou-analytix-notification-box");
-var toastHtml= `
-       <div class="toast active">
-  
-  <div class="toast-content">
-    <i class="fas fa-solid  check"></i>
+    const toastHtml = `
+       <div class="toast-TaiebAnalytix-Toast-Notification active">
 
-    <div class="message">
-      <span class="text text-1">Success</span>
-      <span class="text text-2">Your changes has been saved</span>
+    <div class="toast-content-TaiebAnalytix-Toast-Notification">
+        <i class="fas fa-solid check-TaiebAnalytix-Toast-Notification"></i>
+
+        <div class="message-TaiebAnalytix-Toast-Notification">
+            <span class="text-TaiebAnalytix-Toast-Notification text-1-TaiebAnalytix-Toast-Notification">Success</span>
+            <span class="text-TaiebAnalytix-Toast-Notification text-2-TaiebAnalytix-Toast-Notification">Your changes has been saved</span>
+        </div>
     </div>
-  </div>
-  <i class="fa-solid fa-xmark close"></i>
+    <i class="fa-solid fa-xmark close-TaiebAnalytix-Toast-Notification"></i>
 
-  <!-- Remove 'active' class, this is just to show in Codepen thumbnail -->
-  <div class="progressToast active"></div>
+    <div class="progress-TaiebAnalytix-Toast-Notification active"></div>
 </div>
-    `
-    
+    `;
+
     const alerts = {
         info: {
-            Icon:"fa-info",
-            color: "info",
+            Icon: "fa-info",
+            color: "info-TaiebAnalytix-Toast-Notification",
             Title: "Information"
         },
         error: {
-            Icon:"fa-bug",
-            color: "error",
+            Icon: "fa-bug",
+            color: "error-TaiebAnalytix-Toast-Notification",
             Title: "Error"
         },
         warning: {
-            Icon:"fa-triangle-exclamation",
-            color: "warning",
+            Icon: "fa-triangle-exclamation",
+            color: "warning-TaiebAnalytix-Toast-Notification",
             Title: "Warning"
         },
         success: {
-            Icon:"fa-check",
-            color: "success",
+            Icon: "fa-check",
+            color: "success-TaiebAnalytix-Toast-Notification",
             Title: "Success"
         }
     };
     let component = document.createElement("div");
     component.innerHTML = toastHtml;
-    
-    
-    notificationBox.appendChild(component);
-    const toast = component.querySelector(".toast");
-    (progress = component.querySelector(".progressToast")),
-        (titleSpan = component.querySelector(".text-1")),
-        (textSpan = component.querySelector(".text-2")),
-        (iconSelector = component.querySelector(".check")),
-        (closeIcon = component.querySelector(".close"));
 
-    textSpan.textContent=text;
-    titleSpan.textContent=alerts[type].Title;
-    
+
+    notificationBox.appendChild(component);
+    const toast = component.querySelector(".toast-TaiebAnalytix-Toast-Notification");
+    (progress = component.querySelector(".progress-TaiebAnalytix-Toast-Notification")),
+        (titleSpan = component.querySelector(".text-1-TaiebAnalytix-Toast-Notification")),
+        (textSpan = component.querySelector(".text-2-TaiebAnalytix-Toast-Notification")),
+        (iconSelector = component.querySelector(".check-TaiebAnalytix-Toast-Notification")),
+        (closeIcon = component.querySelector(".close-TaiebAnalytix-Toast-Notification"));
+
+    textSpan.textContent = text;
+    titleSpan.textContent = alerts[type].Title;
+
     let timer1, timer2;
 
     iconSelector.classList.add(alerts[type].Icon);
     iconSelector.classList.add(alerts[type].color);
-    
+
     toast.classList.add("active");
     progress.classList.add("active");
     progress.classList.add(alerts[type].color);
@@ -108,7 +107,7 @@ var toastHtml= `
             notificationBox.removeChild(component);
         }
     }, 5700);
-    
+
 }
 
 

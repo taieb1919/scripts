@@ -1,216 +1,93 @@
-﻿
-[id^="tibou-analytix-"] .one, [id^="tibou-analytix-"] .two, [id^="tibou-analytix-"] .three, [id^="tibou-analytix-"] .four, [id^="tibou-analytix-"] .five {
-    border: none;
-    border-radius: 4px;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.48);
-    overflow: hidden;
-    padding: 20px 50px 20px 70px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    position: relative;
-    color: white;
-    outline: none;
+﻿/*#region Menu Card*/
+.card-TaiebAnalytix-Menu-Card {
+    background-color: rgba(36, 40, 50, 1);
+    background-image: linear-gradient(
+            139deg,
+            rgba(36, 40, 50, 1) 0%,
+            rgba(36, 40, 50, 1) 0%,
+            rgba(37, 28, 40, 1) 100%
+    );
+
+    border-radius: 10px;
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-TaiebAnalytix-Menu-Card .separator-TaiebAnalytix-Menu-Card {
+    border-top: 1.5px solid #42434a;
+}
+
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 10px;
+    margin: 0;
+}
+
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .element-TaiebAnalytix-Menu-Card {
+    display: flex;
+    align-items: center;
+    color: #7e8590;
+    gap: 10px;
+    transition: all 0.3s ease-out;
+    padding: 4px 7px;
+    border-radius: 6px;
     cursor: pointer;
-    width: 100%;
-    -webkit-transition: background-position .7s, box-shadow .4s;
-    transition: background-position .7s, box-shadow .4s;
-    background-size: 110%;
-    font-family: 'Oswald', sans-serif;
 }
 
-[id^="tibou-analytix-"] .one:hover, [id^="tibou-analytix-"] .two:hover, [id^="tibou-analytix-"] .three:hover, [id^="tibou-analytix-"] .four:hover, [id^="tibou-analytix-"] .five:hover {
-    background-position: 0% 30%;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .element-TaiebAnalytix-Menu-Card span {
+    width: 19px;
+    height: 19px;
+    transition: all 0.3s ease-out;
 }
 
-[id^="tibou-analytix-"] .one:hover:after, [id^="tibou-analytix-"] .two:hover:after, [id^="tibou-analytix-"] .three:hover:after, [id^="tibou-analytix-"] .four:hover:after, [id^="tibou-analytix-"] .five:hover:after {
-    right: -40px;
-    -webkit-transition: right .4s, -webkit-transform 30s .2s linear;
-    transition: right .4s, -webkit-transform 30s .2s linear;
-    transition: right .4s, transform 30s .2s linear;
-    transition: right .4s, transform 30s .2s linear, -webkit-transform 30s .2s linear;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .element-TaiebAnalytix-Menu-Card .label-TaiebAnalytix-Menu-Card {
+    font-weight: 600;
+    margin: 0;
 }
 
-[id^="tibou-analytix-"] .one:before, [id^="tibou-analytix-"] .two:before, [id^="tibou-analytix-"] .three:before, [id^="tibou-analytix-"] .four:before, [id^="tibou-analytix-"] .five:before, [id^="tibou-analytix-"] .one:after, [id^="tibou-analytix-"] .two:after, [id^="tibou-analytix-"] .three:after, [id^="tibou-analytix-"] .four:after, [id^="tibou-analytix-"] .five:after {
-    font-family: FontAwesome;
-    display: block;
-    position: absolute;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .element-TaiebAnalytix-Menu-Card:hover {
+    background-color: #5353ff;
+    color: #ffffff;
+    transform: translate(1px, -1px);
 }
 
-[id^="tibou-analytix-"] .one:before, [id^="tibou-analytix-"] .two:before, [id^="tibou-analytix-"] .three:before, [id^="tibou-analytix-"] .four:before, [id^="tibou-analytix-"] .five:before {
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    font-size: 30px;
-    left: 25px;
-    top: 19px;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .delete-TaiebAnalytix-Menu-Card:hover {
+    background-color: #8e2a2a;
 }
 
-[id^="tibou-analytix-"] .one:after, [id^="tibou-analytix-"] .two:after, [id^="tibou-analytix-"] .three:after, [id^="tibou-analytix-"] .four:after, [id^="tibou-analytix-"] .five:after {
-    -webkit-transition: right .4s, -webkit-transform .2s;
-    transition: right .4s, -webkit-transform .2s;
-    transition: right .4s, transform .2s;
-    transition: right .4s, transform .2s, -webkit-transform .2s;
-    font-size: 100px;
-    opacity: .3;
-    right: -120px;
-    top: -17px;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card .element-TaiebAnalytix-Menu-Card:active {
+    transform: scale(0.99);
 }
 
-[id^="tibou-analytix-"] .one {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 10px 0px #782CDA;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#782CDA), to(rgba(126, 94, 162, 0.51))), url("http://gearnuke.com/wp-content/uploads/2015/11/1280x720-cuU.jpg");
-    background-image: linear-gradient(to bottom, #782CDA, rgba(126, 94, 162, 0.51)), url("http://gearnuke.com/wp-content/uploads/2015/11/1280x720-cuU.jpg");
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card:not(:last-child) .element-TaiebAnalytix-Menu-Card:hover span {
+    stroke: #ffffff;
 }
 
-[id^="tibou-analytix-"] .one:hover {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #782CDA;
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card:last-child span {
+    stroke: #bd89ff;
 }
 
-[id^="tibou-analytix-"] .one:hover:after {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card:last-child .element-TaiebAnalytix-Menu-Card {
+    color: #bd89ff;
 }
 
-[id^="tibou-analytix-"] .one:hover:before {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+.card-TaiebAnalytix-Menu-Card .list-TaiebAnalytix-Menu-Card:last-child .element-TaiebAnalytix-Menu-Card:hover {
+    background-color: rgba(56, 45, 71, 0.836);
 }
 
-[id^="tibou-analytix-"] .one:after, [id^="tibou-analytix-"] .one:before {
-    content: "\f0b0";
-}
+/*#endregion Menu Card*/
 
-[id^="tibou-analytix-"] .one b {
-    color: #DDA6FF;
-    font-weight: 700;
-}
+/*#region Toast*/
 
-[id^="tibou-analytix-"] .two {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 10px 0px #E48A3C;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#E48A3C), to(rgba(222, 135, 61, 0.24))), url("http://www.eatweartravel.com/wp-content/uploads/2015/04/i-love-shopping_1920x1200_83206.jpg");
-    background-image: linear-gradient(to bottom, #E48A3C, rgba(222, 135, 61, 0.24)), url("http://www.eatweartravel.com/wp-content/uploads/2015/04/i-love-shopping_1920x1200_83206.jpg");
-}
-
-[id^="tibou-analytix-"] .two:hover {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #E48A3C;
-}
-
-[id^="tibou-analytix-"] .two:hover:after {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-[id^="tibou-analytix-"] .two:hover:before {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-[id^="tibou-analytix-"] .two:after, [id^="tibou-analytix-"] .two:before {
-    content: "";
-}
-
-[id^="tibou-analytix-"] .two b {
-    color: #FFD9B4;
-    font-weight: 700;
-}
-
-[id^="tibou-analytix-"] .three {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 10px 0px #36C176;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#36C176), to(rgba(86, 202, 139, 0.18))), url("http://blog.teamthinklabs.com/wp-content/uploads/2012/09/codepen-460x253.png");
-    background-image: linear-gradient(to bottom, #36C176, rgba(86, 202, 139, 0.18)), url("http://blog.teamthinklabs.com/wp-content/uploads/2012/09/codepen-460x253.png");
-}
-
-[id^="tibou-analytix-"] .three:hover {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #36C176;
-}
-
-[id^="tibou-analytix-"] .three:hover:after {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-[id^="tibou-analytix-"] .three:hover:before {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-[id^="tibou-analytix-"] .three:after, [id^="tibou-analytix-"] .three:before {
-    content: "";
-}
-
-[id^="tibou-analytix-"] .three b {
-    color: #63FFAC;
-    font-weight: 700;
-}
-
-[id^="tibou-analytix-"] .four {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 10px 0px #33E7EA;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#33E7EA), to(rgba(161, 245, 245, 0.24))), url("https://cdn2.itpro.co.uk/sites/itpro/files/server_room.jpg");
-    background-image: linear-gradient(to bottom, #33E7EA, rgba(161, 245, 245, 0.24)), url("https://cdn2.itpro.co.uk/sites/itpro/files/server_room.jpg");
-}
-
-[id^="tibou-analytix-"] .four:hover {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #33E7EA;
-}
-
-[id^="tibou-analytix-"] .four:hover:after {
-    -webkit-transform: rotate(3000deg);
-    transform: rotate(3000deg);
-}
-
-[id^="tibou-analytix-"] .four:hover:before {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-}
-
-[id^="tibou-analytix-"] .four:after, [id^="tibou-analytix-"] .four:before {
-    content: "\f2c6";
-}
-
-[id^="tibou-analytix-"] .four b {
-    color: #1CF4FF;
-    font-weight: 700;
-}
-
-[id^="tibou-analytix-"] .five {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 10px 0px #DE3964;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#DE3964), to(rgba(154, 40, 87, 0.24))), url("http://nightlifeassociates.com/wp-content/uploads/2014/03/hakkasan-nightclub_tiesto-smalls.jpg");
-    background-image: linear-gradient(to bottom, #DE3964, rgba(154, 40, 87, 0.24)), url("http://nightlifeassociates.com/wp-content/uploads/2014/03/hakkasan-nightclub_tiesto-smalls.jpg");
-}
-
-[id^="tibou-analytix-"] .five:hover {
-    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #DE3964;
-}
-
-[id^="tibou-analytix-"] .five:hover:after {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-[id^="tibou-analytix-"] .five:hover:before {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-[id^="tibou-analytix-"] .five:after, [id^="tibou-analytix-"] .five:before {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900; /* Required for FontAwesome solid icons */
-    content: "\f04d"; /* Unicode for the icon (e.g., beer mug) */
-    font-style: normal;
-    display: inline-block;
-}
-
-
-[id^="tibou-analytix-"] .five b {
-    color: #F764FF;
-    font-weight: 700;
-}
-
-/*************   toast notification       ***************/
-/* Container to hold all toasts vertically in the bottom-right */
 .tibou-analytix-notification-box .toast-container {
     position: fixed;
-    bottom: 25px; /* Position from the bottom */
-    right: 30px;
+    bottom: 30px; /* Position from the bottom */
+    right: 40px;
     display: flex;
     flex-direction: column-reverse; /* Stack new toasts from bottom up */
     gap: 15px; /* Spacing between toasts */
@@ -218,77 +95,57 @@
     pointer-events: none; /* Allow clicks to pass through container */
 }
 
-/* Individual toasts are interactive */
-.tibou-analytix-notification-box .toast {
-    width: 300px;
+.toast-TaiebAnalytix-Toast-Notification {
+    min-width: 300px;
+    max-width: 550px;
     border-radius: 12px;
     background: #fff;
     padding: 20px 35px 20px 25px;
     box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transform: translateX(calc(100% + 30px));
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
-    pointer-events: auto; /* Make toasts themselves clickable */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
 }
 
-/* Show toast with animation */
-.tibou-analytix-notification-box .toast.active {
-    transform: translateX(0);
+.toast-TaiebAnalytix-Toast-Notification.active {
+    transform: translateX(0%);
 }
 
-
-.tibou-analytix-notification-box .toast .toast-content {
+.toast-TaiebAnalytix-Toast-Notification .toast-content-TaiebAnalytix-Toast-Notification {
     display: flex;
     align-items: center;
 }
 
-.tibou-analytix-notification-box .toast-content .check {
+.toast-content-TaiebAnalytix-Toast-Notification .check-TaiebAnalytix-Toast-Notification {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 35px;
     min-width: 35px;
+    background-color: #4070f4;
     color: #fff;
     font-size: 20px;
-    background-color: #4070f4;
     border-radius: 50%;
 }
 
-/* State styles */
-.tibou-analytix-notification-box .toast-content .check.info {
-    background-color: #4070f4; /* Info - blue */
-}
-
-.tibou-analytix-notification-box .toast-content .check.success {
-    background-color: #28a745; /* Success - green */
-}
-
-.tibou-analytix-notification-box .toast-content .check.error {
-    background-color: #dc3545; /* Error - red */
-}
-
-.tibou-analytix-notification-box .toast-content .check.warning {
-    background-color: #ffc107; /* Warning - yellow */
-}
-
-.tibou-analytix-notification-box .toast-content .message {
+.toast-content-TaiebAnalytix-Toast-Notification .message-TaiebAnalytix-Toast-Notification {
     display: flex;
     flex-direction: column;
     margin: 0 20px;
 }
 
-.tibou-analytix-notification-box .message .text {
+.message-TaiebAnalytix-Toast-Notification .text-TaiebAnalytix-Toast-Notification {
     font-size: 16px;
     font-weight: 400;
     color: #666666;
 }
 
-.tibou-analytix-notification-box .message .text.text-1 {
+.message-TaiebAnalytix-Toast-Notification .text-TaiebAnalytix-Toast-Notification.text-1-TaiebAnalytix-Toast-Notification {
     font-weight: 600;
     color: #333;
 }
 
-.tibou-analytix-notification-box .toast .close {
+.toast-TaiebAnalytix-Toast-Notification .close-TaiebAnalytix-Toast-Notification {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -297,11 +154,11 @@
     opacity: 0.7;
 }
 
-.tibou-analytix-notification-box .toast .close:hover {
+.toast-TaiebAnalytix-Toast-Notification .close-TaiebAnalytix-Toast-Notification:hover {
     opacity: 1;
 }
 
-.tibou-analytix-notification-box .toast .progressToast {
+.toast-TaiebAnalytix-Toast-Notification .progress-TaiebAnalytix-Toast-Notification {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -310,7 +167,7 @@
 
 }
 
-.tibou-analytix-notification-box .toast .progressToast:before {
+.toast-TaiebAnalytix-Toast-Notification .progress-TaiebAnalytix-Toast-Notification:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -319,23 +176,8 @@
     width: 100%;
     background-color: #4070f4;
 }
-/* State-specific colors */
-.tibou-analytix-notification-box .toast .progressToast.info:before {
-    background-color: #4070f4; /* Info - blue */
-}
 
-.tibou-analytix-notification-box .toast .progressToast.success:before {
-    background-color: #28a745; /* Success - green */
-}
-
-.tibou-analytix-notification-box .toast .progressToast.error:before {
-    background-color: #dc3545; /* Error - red */
-}
-
-.tibou-analytix-notification-box .toast .progressToast.warning:before {
-    background-color: #ffc107; /* Warning - yellow */
-}
-.tibou-analytix-notification-box .progressToast.active:before {
+.progress-TaiebAnalytix-Toast-Notification.active:before {
     animation: progress 5s linear forwards;
 }
 
@@ -345,7 +187,7 @@
     }
 }
 
-.tibou-analytix-notification-box button {
+button {
     padding: 12px 20px;
     font-size: 20px;
     outline: none;
@@ -357,192 +199,388 @@
     transition: 0.3s;
 }
 
-.tibou-analytix-notification-box button:hover {
+button:hover {
     background-color: #0e4bf1;
 }
 
-.tibou-analytix-notification-box .toast.active ~ button {
+.toast-TaiebAnalytix-Toast-Notification.active ~ button {
     pointer-events: none;
 }
 
 
-
-
-
-
-
-/*************   Modal Yes no       ***************/
-
-
-
-.modal-dialog {
-    margin: 0; /* Ensure Flexbox handles the positioning */
-    max-width: 500px;
+.toast-TaiebAnalytix-Toast-Notification .progressToast-TaiebAnalytix-Toast-Notification.info-TaiebAnalytix-Toast-Notification:before {
+    background-color: #4070f4; /* Info - blue */
 }
 
-/* Ensure that modal is flex-centered */
-.modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.toast-TaiebAnalytix-Toast-Notification .progressToast-TaiebAnalytix-Toast-Notification.success-TaiebAnalytix-Toast-Notification:before {
+    background-color: #28a745; /* Success - green */
 }
 
-/* Adjust the modal dialog for vertical centering */
-.tibou-analytix-modal-dialog {
-    /*width: 500px;*/
-    margin: 0; /* Remove any margin so flex-centering takes effect */
-    background-color: #fff;
+.toast-TaiebAnalytix-Toast-Notification .progressToast-TaiebAnalytix-Toast-Notification.error-TaiebAnalytix-Toast-Notification:before {
+    background-color: #dc3545; /* Error - red */
 }
 
-/* Optional: Add fade-in animation */
-.modal.fade .tibou-analytix-modal-dialog {
-    opacity: 0;
-    transform: translateY(-50px);
+.toast-TaiebAnalytix-Toast-Notification .progressToast-TaiebAnalytix-Toast-Notification.warning-TaiebAnalytix-Toast-Notification:before {
+    background-color: #ffc107; /* Warning - yellow */
 }
 
-.modal.fade.in .tibou-analytix-modal-dialog {
+.toast-content-TaiebAnalytix-Toast-Notification .check-TaiebAnalytix-Toast-Notification.info-TaiebAnalytix-Toast-Notification {
+    background-color: #4070f4; /* Info - blue */
+}
+
+.toast-content-TaiebAnalytix-Toast-Notification .check-TaiebAnalytix-Toast-Notification.success-TaiebAnalytix-Toast-Notification {
+    background-color: #28a745; /* Success - green */
+}
+
+.toast-content-TaiebAnalytix-Toast-Notification .check-TaiebAnalytix-Toast-Notification.error-TaiebAnalytix-Toast-Notification {
+    background-color: #dc3545; /* Error - red */
+}
+
+.toast-content-TaiebAnalytix-Toast-Notification .check-TaiebAnalytix-Toast-Notification.warning-TaiebAnalytix-Toast-Notification {
+    background-color: #ffc107; /* Warning - yellow */
+}
+
+/*#endregion toast*/
+
+/*#region Modal*/
+.overlay-TaiebAnalytix-Modal.active {
+    visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    z-index: 99999999;
 }
 
-/* Adjust for mobile screens */
-@media only screen and (max-width: 576px) {
-    .tibou-analytix-modal-dialog {
-        width: 95% !important;
+.overlay-TaiebAnalytix-Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay-TaiebAnalytix-Modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-TaiebAnalytix-Modal {
+    margin: 120px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    min-width: 30%;
+    max-width: 60%;
+    min-height: 20%;
+    max-height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-TaiebAnalytix-Modal h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup-TaiebAnalytix-Modal .close-TaiebAnalytix-Modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup-TaiebAnalytix-Modal .close-TaiebAnalytix-Modal:hover {
+    color: #06D85F;
+}
+
+.popup-TaiebAnalytix-Modal .content-TaiebAnalytix-Modal {
+    min-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+
+    .popup-TaiebAnalytix-Modal {
+        width: 70%;
     }
 }
-.tibou-analytix-modal-box {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
+
+
+.TaiebAnalytix-Modal-form{
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: rgba(242, 242, 242, 0);
+    border: 1px solid #e3e3e3;
+    position: unset;
 }
 
-.tibou-analytix-modal-box .show-modal {
-    color: #fff;
-    background-color: #0b788f;
-    font-size: 15px;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 10px 25px;
-    margin: 80px auto 0;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    display: block;
-    transition: all 0.3s ease 0s;
+.TaiebAnalytix-Modal-form input:last-of-type {
+    margin-bottom: 20px; /* Space between last input and buttons */
+}
+/*#endregion Modal*/
+
+
+/*#region Radio button*/
+
+.radio-input-TaiebAnalytix-radio_button{
+    max-width: 50%;
+}
+.radioContainer-TaiebAnalytix-radio_button {
+    display: flex;
+    /*justify-content: center;    !* Center horizontally *!*/
+    align-items: center;
 }
 
-.tibou-analytix-modal-box .show-modal:hover,
-.tibou-analytix-modal-box .show-modal:focus {
-    color: #fff;
-    outline: none;
-    box-shadow: 2px 2px 0 #fff, 4px 4px 0 #0b788f;
-}
-
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog {
-    width: 500px;
-    margin: 300px auto 0;
-}
-
-.modal.fade .tibou-analytix-modal-dialog {
-    opacity: 0;
-    transform: translate(0, 0) scale(0.8);
-}
-
-.modal.fade.in .tibou-analytix-modal-dialog {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-}
-
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content {
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-close {
-    color: #d1d1d1;
-    font-size: 33px;
-    font-weight: 500;
-    text-shadow: none;
-    line-height: 13px;
-    opacity: 1;
-    overflow: hidden;
+.input-radio-TaiebAnalytix-radio_button {
     position: absolute;
-    left: auto;
-    right: 7px;
-    top: 11px;
-    z-index: 1;
+    left: -9999px;
+}
+
+.input-radio-TaiebAnalytix-radio_button:checked {
+    -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+    -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+}
+
+.input-radio-TaiebAnalytix-radio_button:active {
+    -webkit-transform: scale(1.5);
+    -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+}
+
+
+/* The up/down direction logic */
+
+.input-radio-TaiebAnalytix-radio_button,
+.input-radio-TaiebAnalytix-radio_button:active {
+    background-position: 0 24px;
+}
+
+.input-radio-TaiebAnalytix-radio_button:checked {
+    background-position: 0 0;
+}
+
+.input-radio-TaiebAnalytix-radio_button:checked ~ .input-radio-TaiebAnalytix-radio_button,
+.input-radio-TaiebAnalytix-radio_button:checked ~ .input-radio-TaiebAnalytix-radio_button:active {
+    background-position: 0 -24px;
+}
+
+.label-TaiebAnalytix-radio_button {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+}
+
+.span-TaiebAnalytix-radio_button:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em #00005c;
+}
+
+.span-TaiebAnalytix-radio_button:hover {
+    background-color: #d6d6e5;
+}
+
+.span-TaiebAnalytix-radio_button {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+    color: #414181;
+}
+
+.input-radio-TaiebAnalytix-radio_button:checked + .span-TaiebAnalytix-radio_button {
+    background-color: #414181;
+    color: white;
+}
+
+.input-radio-TaiebAnalytix-radio_button:checked + .span-TaiebAnalytix-radio_button:before {
+    box-shadow: inset 0 0 0 0.4375em #00005c;
+}
+
+/*#endregion Radio button*/
+
+
+/*#region CheckBox*/
+.checkbox-list-TaiebAnalytix-checkBox {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #777777;
+    cursor: pointer;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark-TaiebAnalytix-checkBox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    border: 2px solid #4b0000;
+    border-radius: 4px;
     transition: all 0.3s;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-close:hover {
-    color: #0b788f;
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked {
+
+    font-weight: bold;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-close:focus {
-    outline: none;
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked ~ .checkmark-TaiebAnalytix-checkBox {
+    background-color: #330000;
+    border-color: #4b0000;
+    font-weight: bold;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body {
-    padding: 45px 25px !important;
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:checked ~ .checkmark-TaiebAnalytix-checkBox:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 10px;
+    border: solid #c60707;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-title {
-    color: #626A81;
-    font-size: 30px;
-    font-weight: 500;
-    text-transform: capitalize;
-    margin: 0 0 30px;
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:focus ~ .checkmark-TaiebAnalytix-checkBox {
+    box-shadow: 0 0 0 2px rgba(236, 80, 80, 0.4);
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-description {
-    color: #c3c4c9;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    line-height: 25px;
-    margin: 0 0 35px;
+.material-checkbox-TaiebAnalytix-checkBox:hover input[type="checkbox"] ~ .checkmark-TaiebAnalytix-checkBox {
+    border-color: #cf3434;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-subscribe {
-    color: #fff;
-    background-color: #0b788f;
-    font-size: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:disabled ~ .checkmark-TaiebAnalytix-checkBox {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.material-checkbox-TaiebAnalytix-checkBox input[type="checkbox"]:disabled ~ .checkmark-TaiebAnalytix-checkBox:hover {
+    border-color: #4d4d4d;
+}
+
+
+/*#endregion CheckBox*/
+
+/*#region Btn Taieb*/
+.taieb-btn {
+    --color: #0077ff;
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 10px 5px 10px;
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+    background: rgba(14, 75, 241, 0);
+    padding: 0;
+
+}
+
+.btns-TaiebAnalytix-Modal {
+    display: flex;
+    /*align-items: center;*/
+    /*align-content: center;*/
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.taieb-btn.red-btn {
+    --color: #ff0015;
+}
+
+.taieb-btn.blue-btn {
+    --color: #0077ff;
+}
+
+.taieb-btn.orange-btn {
+    --color: #f5ae51;
+}
+
+.taieb-btn.green-btn {
+    --color: #1aab59;
+}
+
+.taieb-btn.black-btn {
+    --color: #000000;
+}
+
+.taieb-btn::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
     width: 150px;
-    padding: 9px;
-    border: 2px solid #0b788f;
-    border-radius: 40px;
-    transition: all 0.4s ease 0s;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-subscribe:hover,
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-subscribe:focus {
-    color: #0b788f;
-    background-color: #fff;
+.taieb-btn:hover {
+    color: white;
+    background: white;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-cancel {
-    color: #0b788f;
-    background-color: #fff;
-    margin: 0 15px 0 0;
+.taieb-btn:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.9s all;
 }
 
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-cancel:hover,
-.tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-cancel:focus {
-    color: #fff;
-    background-color: #0b788f;
+.taieb-btn:hover::before {
+    top: -30px;
+    left: -30px;
 }
 
-@media only screen and (max-width: 576px) {
-    .tibou-analytix-modal-dialog {
-        width: 95% !important;
-    }
-}
+/*#endregion Btn Taieb*/
 
-@media only screen and (max-width: 399px) {
-    .tibou-analytix-modal-box .tibou-analytix-modal-dialog .tibou-analytix-modal-content .tibou-analytix-modal-body .tibou-analytix-modal-subscribe.tibou-analytix-modal-cancel {
-        margin: 0 0 15px 0;
-    }
-}
+
+
+
