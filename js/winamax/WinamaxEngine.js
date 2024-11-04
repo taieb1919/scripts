@@ -208,7 +208,7 @@ function ExtractSingleTipData(singleTip) {
     let selectedTips = [];
     let TipOdds = "";
     const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1).firstElementChild;
-    if (TipAndOddNodePrincipal.lastElementChild.hasClass("CollapseListItem-collapse")) {
+    if (TipAndOddNodePrincipal.lastElementChild.classList.contains("CollapseListItem-collapse")) {
         isBetBuilderGame = true;
     }
     if (isBetBuilderGame) {
