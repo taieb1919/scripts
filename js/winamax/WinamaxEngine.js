@@ -174,8 +174,9 @@ function SetStakeForAllPlayedTicket() {
 
         if (selectedStake) {
 
-            const singleGamenod = allBetsNodes[0];
+            
             const allBetsNodes = SelectAllBets();
+            const singleGamenod = allBetsNodes[0];
             const info = GetBetInfo(singleGamenod);
             const idDate = GetBetIdentity(singleGamenod)
             const txt = `Ref: ${idDate.betIdDiv.textContent}       <br>Date: ${idDate.betDateDiv.textContent}      <br> Mise :   ${info.spanMise?.textContent}    <br>Gain :   ${info.spanGains?.textContent}    <br>Odds :   ${info.spanOddTotal?.innerText}     <br>Combo Booster :   ${info.spanComboBooster?.textContent}    `;
