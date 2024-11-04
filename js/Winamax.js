@@ -786,6 +786,7 @@ class SportsDictionary {
 
 function SetStakeForForSingleTicket(newStake, element) {
     const info = GetBetInfo(element);
+    const newStakeFloat = parseFloat(newStake.replace(',', '.'));
     const allGamesElement = SelectAllGamesElementsByTicket(element);
     let SpanOddTotal = 1.00;
     if (!info.spanOddTotal && info.spanMiseFreeBets) {
@@ -811,10 +812,16 @@ function SetStakeForForSingleTicket(newStake, element) {
     if (info.spanMise) {
         miseTotaleOriginal = parseFloat(info.spanMise.textContent.replace(',', '.'));
         info.spanMise.textContent = amountFormatter.format(newStake);
-        info.spanGains.textContent = amountFormatter.format(parseFloat(newStake.replace(',', '.')) * SpanOddTotal);
+
+        if (info.StatusBet && info.StatusBet.trim() === "Gagné") {
+            info.spanGains.textContent = amountFormatter.format(newStakeFloat * SpanOddTotal);
+        }
 
         if (info.spanComboBooster) {
+            const oldComboBooster = parseFloat(info.spanComboBooster.textContent.replace(',', '.'));
+            const comboMultiplier = newStakeFloat / miseTotaleOriginal;
 
+            info.spanComboBooster.textContent = amountFormatter.format(oldComboBooster * comboMultiplier)
         }
     }
 
@@ -963,8 +970,20 @@ function GetBetInfo(element) {
 
     const StatusBet = headerNode.children[0];
     const TypeBet = headerNode.children[1];
-
-    return {StatusBet, TypeBet, spanMise, spanMiseFreeBets, spanGains, spanOddTotal, spanComboBooster};
+    const betIdDate = GetBetIdentity(element);
+    const betDateDiv = betIdDate.betDateDiv;
+    const betIdDiv = betIdDate.betIdDiv;
+    return {
+        StatusBet,
+        TypeBet,
+        spanMise,
+        spanMiseFreeBets,
+        spanGains,
+        spanOddTotal,
+        spanComboBooster,
+        betDateDiv,
+        betIdDiv
+    };
 }
 
 function SelectAllGamesElementsByTicket(element) {
