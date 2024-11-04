@@ -136,3 +136,53 @@ class FavouriteGame {
         this.source = source;
     }
 }
+
+
+class AddTicketCommand {
+    constructor({
+                    betType = "",
+                    ticketStatus = "",
+                    games = [],
+                    dateString = "",
+                    betId = "",
+                    stake = "",
+                    totalOdd = "",
+                    comment = "",
+                    outerHtml = ""
+                } = {}) {
+        this.betType = betType;              // Equivalent to string in C#
+        this.ticketStatus = ticketStatus;    // Equivalent to string in C#
+        this.games = games;                  // Array of AddGameModel instances
+        this.dateString = dateString;        // Date in string format
+        this.betId = betId;
+        this.stake = stake;
+        this.totalOdd = totalOdd;
+        this.comment = comment;
+        this.outerHtml = outerHtml;
+    }
+}
+
+
+class AddGameModel {
+    constructor({
+                    betStatusColor = "",
+                    competition = "",
+                    gameTitle = "",
+                    sport = "",
+                    isBoosted = false,
+                    selectedTips = [],
+                    isLive = false,
+                    isBetBuilder = false,
+                    odd = ""
+                } = {}) {
+        this.betStatusColor = betStatusColor;  // Color for bet status as string
+        this.competition = competition;        // String value for competition
+        this.gameTitle = gameTitle;            // Title of the game
+        this.sport = sport;                    // Sport as string
+        this.isBoosted = isBoosted;            // Boolean value for boost status
+        this.selectedTips = selectedTips;      // Array of strings
+        this.isLive = isLive;                  // Boolean indicating live status
+        this.isBetBuilder = isBetBuilder;      // Boolean indicating bet builder
+        this.odd = odd;                        // String value for odds
+    }
+}
