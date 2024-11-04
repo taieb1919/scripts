@@ -741,7 +741,7 @@ function SetStakeForAllPlayedTicket() {
     const radioBtns = GenerateRadioButtonGroup("stake", "100", "25", "50", "100");
     modalContentDiv.appendChild(radioBtns);
     SetModalFormHeaderTitle("Set stake for all Closed tickets");
-    form.addEventListener("submit", function (event) {
+    form.onsubmit = (event) => {
         event.preventDefault(); // Prevent default form submission
 
         // Get the selected value of "favoriteColor"
@@ -760,7 +760,7 @@ function SetStakeForAllPlayedTicket() {
         }
 
 
-    });
+    };
     openMainModal();
 }
 
@@ -805,7 +805,7 @@ function GetBetInfo(element) {
     const spanMise = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
     const spanComboBooster = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
     const spanGains = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
-    const spanOddTotal = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Cote totale".trim())?.parentElement.lastElementChild;
+    const spanOddTotal = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.lastElementChild;
 
     return {spanMise, spanGains, spanOddTotal, spanComboBooster};
 }
