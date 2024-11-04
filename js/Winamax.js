@@ -766,27 +766,27 @@ function SetStakeForAllPlayedTicket() {
 
 function AddButtonEventListeners() {
     const myButton1 = document.getElementById("card-TaiebAnalytix-Menu-btn1");
-    myButton1.addEventListener("click", function () {
+    myButton1.onclick = () => {
         SendSuccessMessage("Hello");
 
-    });
+    };
 
     const myButton2 = document.getElementById("card-TaiebAnalytix-Menu-btn2");
-    myButton2.addEventListener("click", async function () {
+    myButton2.onclick = async () => {
 
         await ExtractWinAMaxFavouriteGames()
-    });
+    };
     const myButton3 = document.getElementById("card-TaiebAnalytix-Menu-btn3");
-    myButton3.addEventListener("click", function () {
+    myButton3.onclick = () => {
         SendErrorMessage("Hello ssqd sqds qsd sqdsq dqlmkkqsfd qsdklmqes  sqdqklqdlqk qd  qsksqd kmùdsqsqd qdqkqs" +
             "qdùmùdlkmùdmls ùkqsdmùlksdq mùlkqsdl sqùmkmùdkqds ");
 
-    });
+    };
     const myButton4 = document.getElementById("card-TaiebAnalytix-Menu-btn4");
-    myButton4.addEventListener("click", function () {
+    myButton4.onclick = () => {
         SetStakeForAllPlayedTicket();
 
-    });
+    };
 
     const myButton5 = document.getElementById("card-TaiebAnalytix-Menu-btn5");
     myButton5.addEventListener("click", function () {
@@ -801,7 +801,7 @@ function AddButtonEventListeners() {
 }
 
 function GetBetInfo(element) {
-    
+
     const spanMise = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
     const spanComboBooster = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
     const spanGains = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
