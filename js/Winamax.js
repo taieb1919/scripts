@@ -783,7 +783,7 @@ function ExtractSingleTipData(singleTip) {
     let isBetBuilderGame = false;
     let selectedTips = [];
     let TipOdds = "";
-    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1).firstElementChild;
+    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1 && !div.querySelector("svg")).firstElementChild;
     if (TipAndOddNodePrincipal.lastElementChild.classList.contains("CollapseListItem-collapse")) {
         isBetBuilderGame = true;
     }
