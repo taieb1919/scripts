@@ -792,7 +792,7 @@ function SetStakeForForSingleTicket(newStake, element) {
 
         const singleTip = allGamesElement[0];
         const tipData = ExtractSingleTipData(singleTip);
-        SpanOddTotal = parseFloat(tipData.spanOddTotal.textContent.replace(',', '.'));
+        SpanOddTotal = parseFloat(tipData.TipOdds.textContent.replace(',', '.'));
 
     } else {
 
