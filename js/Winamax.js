@@ -755,15 +755,15 @@ function SetStakeForAllPlayedTicket() {
             const singleGamenod = allBetsNodes[0];
             const info = GetBetInfo(singleGamenod);
             const idDate = GetBetIdentity(singleGamenod)
-            const txt = `Ref: ${idDate.betIdDiv.textContent}       <br>Date: ${idDate.betDateDiv.textContent}      <br> Mise :   ${info.spanMise?.textContent}    <br>Gain :   ${info.spanGains?.textContent}    <br>Odds :   ${info.spanOddTotal?.innerText}     <br>Combo Booster :   ${info.spanComboBooster?.textContent}    `;
+            const txt = `Ref: ${idDate.betIdDiv.textContent}       \nDate: ${idDate.betDateDiv.textContent}      \n Mise :   ${info.spanMise?.textContent}    \nGain :   ${info.spanGains?.textContent}    \nOdds :   ${info.spanOddTotal?.innerText}     \nCombo Booster :   ${info.spanComboBooster?.textContent}    `;
             SendInfoMessage(`selected stake : ${txt}`);
 
             const allGamesElement = SelectAllGamesElementsByTicket(singleGamenod);
 
             const singleTip = allGamesElement[0];
             const tipData = ExtractSingleTipData(singleTip);
-            const txt2=`Match : ${tipData.matchTitle}<br>Odds :   ${tipData.TipOdds}    tips: ${tipData.selectedTips.map(child => child.textContent)
-                .join('<br>')}`;
+            const txt2=`Match : ${tipData.matchTitle}\nOdds :   ${tipData.TipOdds}    tips: ${tipData.selectedTips.map(child => child.textContent)
+                .join('\n')}`;
             
             SendErrorMessage(txt2);
             closeMainModal();
@@ -782,8 +782,8 @@ function ExtractSingleTipData(singleTip) {
     const MatchNode = singleTip.lastElementChild;
     let isBetBuilderGame = false;
     let selectedTips = [];
-    let TipOdds = "";
-    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1 && !div.querySelector("svg")).firstElementChild;
+    let TipOdds;
+    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1);
     if (TipAndOddNodePrincipal.lastElementChild.classList.contains("CollapseListItem-collapse")) {
         isBetBuilderGame = true;
     }
@@ -800,7 +800,11 @@ function ExtractSingleTipData(singleTip) {
         })
 
     } else {
-        selectedTips.push(TipAndOddNodePrincipal.firstElementChild.textContent);
+        let selectedTipsJoined;
+        selectedTipsJoined = Array.from(TipAndOddNodePrincipal.firstElementChild.lastElementChild.children)
+            .map(child => child.textContent)
+            .join(' - ');
+        selectedTips.push(selectedTipsJoined);
         TipOdds = TipAndOddNodePrincipal.lastElementChild.textContent;
     }
 
