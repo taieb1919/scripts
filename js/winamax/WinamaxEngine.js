@@ -159,13 +159,21 @@ class SportsDictionary {
 
 function SetStakeForForSingleTicket(newStake, element) {
     const info = GetBetInfo(element);
-    let SpanOdd = info.spanOddTotal;
-    if (!SpanOdd) {
-        const allGamesElement = SelectAllGamesElementsByTicket(element);
+    const allGamesElement = SelectAllGamesElementsByTicket(element);
+    let SpanOddTotal = 1.00;
+    if (!info.spanOddTotal) {
+
         const singleTip = allGamesElement[0];
         const tipData = ExtractSingleTipData(singleTip);
-        SpanOdd = tipData.spanOddTotal;
+        SpanOddTotal = parseFloat(tipData.spanOddTotal.replace(',', '.'));
 
+    } else {
+
+        allGamesElement.forEach(e=>{
+            const tipData = ExtractSingleTipData(e);
+            SpanOddTotal*=parseFloat(tipData.TipOdds.replace(',', '.'));
+        });
+        
     }
     const amountFormatter = new Intl.NumberFormat('fr-FR', {
         style: 'currency',
@@ -175,15 +183,15 @@ function SetStakeForForSingleTicket(newStake, element) {
     let miseTotaleOriginal;
     if (info.spanMise) {
         miseTotaleOriginal = parseFloat(info.spanMise.textContent.replace(',', '.'));
-    } else {
-        miseTotaleOriginal = parseFloat(info.spanMiseFreeBets.textContent.replace(',', '.'));
+        info.spanMise.textContent = amountFormatter.format(newStake);
+        info.spanGains.textContent = amountFormatter.format(parseFloat(newStake.replace(',', '.')) * SpanOddTotal);
+
+        if (info.spanComboBooster) {
+
+        }
     }
 
-    info.spanMise.textContent = amountFormatter.format(newStake);
-    info.spanGains.textContent = amountFormatter.format(parseFloat(newStake.replace(',', '.')) * parseFloat(SpanOdd.textContent.replace(',', '.')));
-    if (info.spanComboBooster) {
 
-    }
 }
 
 function SetStakeForAllPlayedTicket() {
