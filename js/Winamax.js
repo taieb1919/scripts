@@ -733,6 +733,7 @@ class SportsDictionary {
     }
 }
 
+
 function SetStakeForAllPlayedTicket() {
     ClearModalFormContent();
 
@@ -748,11 +749,22 @@ function SetStakeForAllPlayedTicket() {
         const selectedStake = document.querySelector('input[name="stake"]:checked');
 
         if (selectedStake) {
+
+            const singleGamenod = allBetsNodes[0];
             const allBetsNodes = SelectAllBets();
-            const info = GetBetInfo(allBetsNodes[0]);
-            const idDate = GetBetIdentity(allBetsNodes[0])
-            const txt = `Ref: ${idDate.betIdDiv.textContent}       Date: ${idDate.betDateDiv.textContent}       Mise :   ${info.spanMise?.textContent}    Gain :   ${info.spanGains?.textContent}    Odds :   ${info.spanOddTotal?.innerText}     Combo Booster :   ${info.spanComboBooster?.textContent}    `;
+            const info = GetBetInfo(singleGamenod);
+            const idDate = GetBetIdentity(singleGamenod)
+            const txt = `Ref: ${idDate.betIdDiv.textContent}       <br>Date: ${idDate.betDateDiv.textContent}      <br> Mise :   ${info.spanMise?.textContent}    <br>Gain :   ${info.spanGains?.textContent}    <br>Odds :   ${info.spanOddTotal?.innerText}     <br>Combo Booster :   ${info.spanComboBooster?.textContent}    `;
             SendInfoMessage(`selected stake : ${txt}`);
+
+            const allGamesElement = SelectAllGamesElementsByTicket(singleGamenod);
+
+            const singleTip = allGamesElement[0];
+            const tipData = ExtractSingleTipData(singleTip);
+            const txt2=`Match : ${tipData.matchTitle}<br>Odds :   ${tipData.TipOdds}    tips: ${tipData.selectedTips.map(child => child.textContent)
+                .join('<br>')}`;
+            
+            SendErrorMessage(txt2);
             closeMainModal();
 
         } else {
@@ -762,6 +774,47 @@ function SetStakeForAllPlayedTicket() {
 
     };
     openMainModal();
+}
+
+function ExtractSingleTipData(singleTip) {
+    const TipAndOddNode = singleTip.firstElementChild;
+    const MatchNode = singleTip.lastElementChild;
+    let isBetBuilderGame = false;
+    let selectedTips = [];
+    let TipOdds = "";
+    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1);
+    if (TipAndOddNodePrincipal.lastElementChild.hasClass("CollapseListItem-collapse")) {
+        isBetBuilderGame = true;
+    }
+    if (isBetBuilderGame) {
+        TipOdds = TipAndOddNodePrincipal.firstElementChild?.lastElementChild?.textContent;
+        const betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("div")).find(div => div.children.length > 1);
+        Array.from(betBuilderTips.children).forEach((e) => {
+            const rootSpan = e.querySelector('span');
+            const joinedText = Array.from(rootSpan.children)
+                .map(child => child.textContent)
+                .join(' - ')
+
+            selectedTips.push(joinedText);
+        })
+
+    } else {
+        selectedTips.push(TipAndOddNodePrincipal.firstElementChild.textContent);
+        TipOdds = TipAndOddNodePrincipal.lastElementChild.textContent;
+    }
+
+    if (MatchNode.querySelector("span")) {
+        const span = MatchNode.querySelector('span');
+
+// Remove the <span> element from the <div>
+        if (span) {
+            span.innerText = ' ';
+        }
+    }
+
+    let matchTitle = MatchNode.textContent;
+
+    return {matchTitle, TipOdds, selectedTips};
 }
 
 function AddButtonEventListeners() {
@@ -821,6 +874,10 @@ function GetBetInfo(element) {
     const spanOddTotal = allSpansArray.find(el => el.textContent.replace(/\s+/g, ' ').trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.querySelector("div");
 
     return {spanMise, spanGains, spanOddTotal, spanComboBooster};
+}
+
+function SelectAllGamesElementsByTicket(element) {
+    return Array.from(element.querySelectorAll('a'));
 }
 
 function SelectAllBets() {
