@@ -799,12 +799,17 @@ function SetStakeForForSingleTicket(newStake, element) {
         currency: 'EUR'
     });
 
-    const miseTotale = parseFloat(info.spanMise.textContent);
+    let miseTotaleOriginal;
+    if (info.spanMise) {
+        miseTotaleOriginal = parseFloat(info.spanMise.textContent.replace(',', '.'));
+    } else {
+        miseTotaleOriginal = parseFloat(info.spanMiseFreeBets.textContent.replace(',', '.'));
+    }
 
     info.spanMise.textContent = amountFormatter.format(newStake);
-    info.spanGains.textContent = amountFormatter.format(parseFloat(newStake) * parseFloat(SpanOdd.textContent));
+    info.spanGains.textContent = amountFormatter.format(parseFloat(newStake.replace(',', '.')) * parseFloat(SpanOdd.textContent.replace(',', '.')));
     if (info.spanComboBooster) {
-    
+
     }
 }
 
@@ -823,7 +828,7 @@ function SetStakeForAllPlayedTicket() {
         const selectedStake = document.querySelector('input[name="stake"]:checked');
 
         if (selectedStake) {
-            const newStake = selectedStake.nextSibling.textContent.trim();
+            const newStake = selectedStake.nextElementSibling.textContent.trim();
 
             const allBetsNodes = SelectAllBets();
 
@@ -941,6 +946,7 @@ function GetBetInfo(element) {
         console.log(x.textContent);
     })
     const spanMise = allSpansArray.find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
+    const spanMiseFreeBets = allSpansArray.find(el => el.textContent.toLowerCase().trim() === "Mise Freebets".toLowerCase().trim())?.parentElement.lastElementChild;
     const spanComboBooster = allSpansArray.find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
     const spanGains = allSpansArray.find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
     const spanOddTotal = allSpansArray.find(el => el.textContent.replace(/\s+/g, ' ').trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.querySelector("div");
@@ -950,7 +956,7 @@ function GetBetInfo(element) {
     const StatusBet = headerNode.children[0];
     const TypeBet = headerNode.children[1];
 
-    return {StatusBet, TypeBet, spanMise, spanGains, spanOddTotal, spanComboBooster};
+    return {StatusBet, TypeBet, spanMise, spanMiseFreeBets, spanGains, spanOddTotal, spanComboBooster};
 }
 
 function SelectAllGamesElementsByTicket(element) {
