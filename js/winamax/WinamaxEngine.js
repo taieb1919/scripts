@@ -207,13 +207,13 @@ function ExtractSingleTipData(singleTip) {
     let isBetBuilderGame = false;
     let selectedTips = [];
     let TipOdds = "";
-    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1);
+    const TipAndOddNodePrincipal = Array.from(TipAndOddNode.querySelectorAll("div")).find(div => div.children.length > 1).firstElementChild;
     if (TipAndOddNodePrincipal.lastElementChild.hasClass("CollapseListItem-collapse")) {
         isBetBuilderGame = true;
     }
     if (isBetBuilderGame) {
         TipOdds = TipAndOddNodePrincipal.firstElementChild?.lastElementChild?.textContent;
-        const betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("div")).find(div => div.children.length > 1);
+        const betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("div")).find(div => div.children.length > 1).firstElementChild;
         Array.from(betBuilderTips.children).forEach((e) => {
             const rootSpan = e.querySelector('span');
             const joinedText = Array.from(rootSpan.children)
