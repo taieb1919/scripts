@@ -225,11 +225,14 @@ function AddButtonEventListeners() {
 }
 
 function GetBetInfo(element) {
-
-    const spanMise = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
-    const spanComboBooster = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
-    const spanGains = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
-    const spanOddTotal = Array.from(element.querySelectorAll('span')).find(el => el.textContent.trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.lastElementChild;
+    const allSpansArray = Array.from(element.querySelectorAll('span'));
+    allSpansArray.forEach(x => {
+        console.log(x.textContent);
+    })
+    const spanMise = allSpansArray.find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
+    const spanComboBooster = allSpansArray.find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
+    const spanGains = allSpansArray.find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
+    const spanOddTotal = allSpansArray.find(el => el.textContent.trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.querySelector("div");
 
     return {spanMise, spanGains, spanOddTotal, spanComboBooster};
 }
