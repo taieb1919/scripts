@@ -161,19 +161,19 @@ function SetStakeForForSingleTicket(newStake, element) {
     const info = GetBetInfo(element);
     const allGamesElement = SelectAllGamesElementsByTicket(element);
     let SpanOddTotal = 1.00;
-    if (!info.spanOddTotal) {
+    if (!info.spanOddTotal && info.spanMiseFreeBets) {
 
         const singleTip = allGamesElement[0];
         const tipData = ExtractSingleTipData(singleTip);
-        SpanOddTotal = parseFloat(tipData.spanOddTotal.replace(',', '.'));
+        SpanOddTotal = parseFloat(tipData.spanOddTotal.textContent.replace(',', '.'));
 
     } else {
 
-        allGamesElement.forEach(e=>{
+        allGamesElement.forEach(e => {
             const tipData = ExtractSingleTipData(e);
-            SpanOddTotal*=parseFloat(tipData.TipOdds.replace(',', '.'));
+            SpanOddTotal *= parseFloat(tipData.TipOdds.textContent.replace(',', '.'));
         });
-        
+
     }
     const amountFormatter = new Intl.NumberFormat('fr-FR', {
         style: 'currency',
