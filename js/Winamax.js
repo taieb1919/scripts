@@ -751,7 +751,7 @@ function SetStakeForAllPlayedTicket() {
             const allBetsNodes = SelectAllBets();
             const info = GetBetInfo(allBetsNodes[0]);
 
-            const txt = `Mise :   ${info.spanMise?.textContent}    Gain :   ${info.spanGains?.textContent}    Odds :   ${info.spanOddTotal?.textContent}     Combo Booster :   ${info.spanComboBooster?.textContent}    `;
+            const txt = `Mise :   ${info.spanMise?.textContent}    Gain :   ${info.spanGains?.textContent}    Odds :   ${info.spanOddTotal?.innerText}     Combo Booster :   ${info.spanComboBooster?.textContent}    `;
             SendInfoMessage(`selected stake : ${txt}`);
             closeMainModal();
 
