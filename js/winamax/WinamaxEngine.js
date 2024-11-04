@@ -174,8 +174,8 @@ function SetStakeForAllPlayedTicket() {
         if (selectedStake) {
             const allBetsNodes = SelectAllBets();
             const info = GetBetInfo(allBetsNodes[0]);
-
-            const txt = `Mise :   ${info.spanMise?.textContent}    Gain :   ${info.spanGains?.textContent}    Odds :   ${info.spanOddTotal?.innerText}     Combo Booster :   ${info.spanComboBooster?.textContent}    `;
+            const idDate = GetBetIdentity(allBetsNodes[0])
+            const txt = `Ref: ${idDate.betIdDiv.textContent}       Date: ${idDate.betDateDiv.textContent}       Mise :   ${info.spanMise?.textContent}    Gain :   ${info.spanGains?.textContent}    Odds :   ${info.spanOddTotal?.innerText}     Combo Booster :   ${info.spanComboBooster?.textContent}    `;
             SendInfoMessage(`selected stake : ${txt}`);
             closeMainModal();
 
@@ -224,6 +224,16 @@ function AddButtonEventListeners() {
     });
 }
 
+function GetBetIdentity(element) {
+
+    const betIdDateDiv = element.lastElementChild.lastElementChild;
+
+    const betIdDiv = betIdDateDiv.firstElementChild;
+    const betDateDiv = betIdDateDiv.lastElementChild;
+
+    return {betIdDiv, betDateDiv};
+}
+
 function GetBetInfo(element) {
     const allSpansArray = Array.from(element.querySelectorAll('span'));
     allSpansArray.forEach(x => {
@@ -232,7 +242,7 @@ function GetBetInfo(element) {
     const spanMise = allSpansArray.find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
     const spanComboBooster = allSpansArray.find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
     const spanGains = allSpansArray.find(el => el.textContent.trim() === "Gains".trim())?.parentElement.lastElementChild;
-    const spanOddTotal = allSpansArray.find(el => el.textContent.trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.querySelector("div");
+    const spanOddTotal = allSpansArray.find(el => el.textContent.replace(/\s+/g, ' ').trim().toLowerCase() === "Cote totale".trim().toLowerCase())?.parentElement.querySelector("div");
 
     return {spanMise, spanGains, spanOddTotal, spanComboBooster};
 }
