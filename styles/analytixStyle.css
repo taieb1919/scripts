@@ -645,26 +645,34 @@ button:hover {
 
 /* hover effect on button width */
 .Btn-TaiebAnalytix-contextual-menu:hover {
-    width: 125px;
+    
+    /*min-width: 155px;*/
+    min-width: 80%;
     border-radius: 40px;
     transition-duration: .3s;
     background-color: var(--colorContext);
+    
 }
 
 .Btn-TaiebAnalytix-contextual-menu:hover .sign-TaiebAnalytix-contextual-menu {
-    width: 30%;
+    width: auto;
     transition-duration: .3s;
     padding-left: 2px;
     background-color: var(--colorContext);
+    margin-right:10px ;
+    margin-left:10px ;
 }
 
 /* hover effect button's text */
 .Btn-TaiebAnalytix-contextual-menu:hover .text-TaiebAnalytix-contextual-menu {
     opacity: 1;
-    width: 70%;
+    width: auto;
     transition-duration: .3s;
     padding-right: 10px;
     font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden; /* Optional: hides any overflowed text */
+    text-overflow: ellipsis;
 }
 
 /* button click effect*/
@@ -691,19 +699,21 @@ button:hover {
 
 .container-TaiebAnalytix-contextual-menu {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 150px;
+    top: 20px;
+    right: -20px;
+    min-width: 230px;
+    
     background-color: rgba(240, 240, 240, 0);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(20, 47, 96, 0.82);
-    display: flex;                /* Enable Flexbox */
-    flex-direction: column;       /* Stack items vertically */
-    justify-content: center;      /* Center items vertically */
-    align-items: flex-end;          /* Center items horizontally */
-    overflow: hidden;             /* Hide any overflow */
+    
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: end; /* Center items vertically */
+    align-items: flex-end; /* Center items horizontally */
+    overflow: hidden; /* Hide any overflow */
 }
+
 /*#endregion contextual-menu */
 
 
