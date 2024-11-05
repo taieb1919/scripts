@@ -213,10 +213,10 @@ function SetStakeForAllPlayedTicket() {
         event.preventDefault(); // Prevent default form submission
 
         // Get the selected value of "favoriteColor"
-        const selectedStake = document.querySelector('input[name="stake"]:checked');
+        const newStake = GetSelectedRadioButtonValue("stake");
 
-        if (selectedStake) {
-            const newStake = selectedStake.nextElementSibling.textContent.trim();
+        if (newStake) {
+            
 
             const allBetsNodes = SelectAllBets();
 
@@ -233,6 +233,16 @@ function SetStakeForAllPlayedTicket() {
 
     };
     openMainModal();
+}
+
+function GetSelectedRadioButtonValue(groupName) {
+    const selectedRadio = document.querySelector(`input[name="${groupName}"]:checked`);
+    let selectedValue;
+    if (selectedRadio) {
+        selectedValue = selectedRadio.nextElementSibling.textContent.trim();
+    }
+
+    return selectedValue;
 }
 
 function ExtractSingleTipData(singleTip) {
@@ -588,7 +598,7 @@ function appendContextualMenu(element) {
     telegramBtn.onclick = () => SendTelegram(element);
     saveDataBase.onclick = () => SaveTicketInDataBase(element);
     updateTicketStake.onclick = () => UpdateTicketStake(element);
-    
+
     element.appendChild(contextualMenu); // Append the menu to the matched element
 }
 

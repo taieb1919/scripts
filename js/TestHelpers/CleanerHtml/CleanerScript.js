@@ -1,7 +1,7 @@
 ﻿// Import necessary modules
 const fs = require('fs');
 const path = require('path');
-const { JSDOM } = require('jsdom'); // Use JSDOM to manipulate HTML in Node
+const {JSDOM} = require('jsdom'); // Use JSDOM to manipulate HTML in Node
 
 // Function to clean HTML file by removing elements matching an array of selectors
 function cleanHTMLFile(filePath, selectorsToRemove) {

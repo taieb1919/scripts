@@ -645,13 +645,13 @@ button:hover {
 
 /* hover effect on button width */
 .Btn-TaiebAnalytix-contextual-menu:hover {
-    
+
     /*min-width: 155px;*/
     min-width: 80%;
     border-radius: 40px;
     transition-duration: .3s;
     background-color: var(--colorContext);
-    
+
 }
 
 .Btn-TaiebAnalytix-contextual-menu:hover .sign-TaiebAnalytix-contextual-menu {
@@ -659,8 +659,8 @@ button:hover {
     transition-duration: .3s;
     padding-left: 2px;
     background-color: var(--colorContext);
-    margin-right:10px ;
-    margin-left:10px ;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 /* hover effect button's text */
@@ -702,11 +702,11 @@ button:hover {
     top: 20px;
     right: -20px;
     min-width: 230px;
-    
+
     background-color: rgba(240, 240, 240, 0);
     padding: 10px;
     border-radius: 5px;
-    
+
     display: flex; /* Enable Flexbox */
     flex-direction: column; /* Stack items vertically */
     justify-content: end; /* Center items vertically */

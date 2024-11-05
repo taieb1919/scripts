@@ -1,5 +1,5 @@
-﻿import { promises as fs } from 'fs'; // Use fs.promises to work with promises
-import { JSDOM } from 'jsdom';
+﻿import {promises as fs} from 'fs'; // Use fs.promises to work with promises
+import {JSDOM} from 'jsdom';
 
 // Function to load local HTML content from a file path and return it as a DocumentFragment
 export async function loadExternalHTMLFromFile(filePath) {

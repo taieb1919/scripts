@@ -115,7 +115,7 @@ function filterBetWrappers(choice) {
             betHeader.click();
         }
     });
-    
+
 
     reorderBetWrappers();
 }

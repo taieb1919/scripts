@@ -1,4 +1,5 @@
 ﻿@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600";
+
 .tibou-analytix-modal-internal *,
 .tibou-analytix-modal-internal *::before,
 .tibou-analytix-modal-internal *::after {
@@ -17,6 +18,7 @@
     color: #fff;
     text-decoration: none;
 }
+
 .tibou-analytix-modal-internal a:hover {
     text-decoration: none;
 }
@@ -68,6 +70,7 @@
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .tibou-analytix-modal-internal .modalcontainer.active {
     display: block;
 }
@@ -81,12 +84,15 @@
     height: auto;
     background-color: #fff;
 }
+
 .tibou-analytix-modal-internal .modal.active {
     display: block;
 }
+
 .tibou-analytix-modal-internal .modal .content {
     padding: 30px;
 }
+
 .tibou-analytix-modal-internal .modal .close {
     font-family: "Source Sans Pro", sans-serif;
     cursor: pointer;
@@ -100,10 +106,12 @@
     color: #999;
     font-size: 40px;
 }
+
 .tibou-analytix-modal-internal .modal .close span {
     transform: rotate(45deg);
     display: block;
 }
+
 .tibou-analytix-modal-internal .modal .buttons {
     width: 600px;
     position: absolute;
@@ -111,6 +119,7 @@
     height: 50px;
     background-color: #fff;
 }
+
 .tibou-analytix-modal-internal .modal .buttons a {
     width: 50%;
     height: 50px;
@@ -123,14 +132,17 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
 .tibou-analytix-modal-internal .modal .buttons a:hover {
     background-color: rgb(225.25, 225.25, 225.25);
 }
+
 .tibou-analytix-modal-internal .modal .buttons a:nth-of-type(2) {
     float: right;
     color: #fff;
     background-color: #00c06d;
 }
+
 .tibou-analytix-modal-internal .modal .buttons a:nth-of-type(2):hover {
     background-color: rgb(0, 166.5, 94.5234375);
 }
@@ -144,10 +156,10 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-radius: 4px;
 }
+
 .tibou-analytix-modal-internal .modalbttn:hover {
     background-color: rgb(43.0615384615, 44.2576923077, 50.2384615385);
 }
-
 
 
 form {
@@ -214,8 +226,8 @@ form input[type="radio"]::before {
 
 form input[type="radio"]::after {
     position: relative;
-    width: calc(100% /2);
-    height: calc(100% /2);
+    width: calc(100% / 2);
+    height: calc(100% / 2);
     background: var(--radio-checked);
     top: var(--y, 100%);
     transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
@@ -291,7 +303,6 @@ body .socials > a:hover {
 }
 
 
-
 html, body {
     height: 100%;
 }
@@ -305,6 +316,7 @@ html, body {
     -webkit-tap-highlight-color: transparent;
     transform: translate3d(0, 0, 0);
 }
+
 .toggle:before {
     content: "";
     position: relative;
@@ -317,6 +329,7 @@ html, body {
     border-radius: 8px;
     transition: background 0.2s ease;
 }
+
 .toggle span {
     position: absolute;
     top: 0;
@@ -329,6 +342,7 @@ html, body {
     box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
     transition: all 0.2s ease;
 }
+
 .toggle span:before {
     content: "";
     position: absolute;
@@ -346,12 +360,14 @@ html, body {
 #cbx:checked + .toggle:before {
     background: #947ADA;
 }
+
 #cbx:checked + .toggle span {
     background: #4F2EDC;
     transform: translateX(20px);
     transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
     box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
 }
+
 #cbx:checked + .toggle span:before {
     transform: scale(1);
     opacity: 0;
