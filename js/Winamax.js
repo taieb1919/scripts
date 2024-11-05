@@ -875,8 +875,13 @@ function ExtractSingleTipData(singleTip) {
     }
     if (isBetBuilderGame) {
         TipOdds = TipAndOddNodePrincipal.firstElementChild?.lastElementChild;
-        const betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("div")).find(div => div.children.length > 1).firstElementChild;
-        Array.from(betBuilderTips.children).forEach((e) => {
+        let betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("div")).find(div => div.children.length > 1);
+
+        if (!betBuilderTips)
+            betBuilderTips = Array.from(TipAndOddNodePrincipal.lastElementChild.querySelectorAll("span")).find(div => div.children.length > 1);
+
+
+        Array.from(betBuilderTips.firstElementChild.children).forEach((e) => {
             const rootSpan = e.querySelector('span');
             const joinedText = Array.from(rootSpan.children)
                 .map(child => child.textContent)
@@ -905,8 +910,9 @@ function ExtractSingleTipData(singleTip) {
     }
 
     let matchTitle = MatchNode.textContent;
+    let sportValue = SportsDictionary.findSportsByClassList(MatchNode.firstElementChild.firstElementChild.classList);
 
-    return {isBetBuilderGame, matchTitle, TipOdds, selectedTips, betStatusColor};
+    return {isBetBuilderGame, sportValue, matchTitle, TipOdds, selectedTips, betStatusColor};
 }
 
 function AddButtonEventListeners() {
@@ -1165,3 +1171,93 @@ function BuildMenu() {
 </div>
     `;
 }
+
+
+// Function to append the contextual menu to a specific element
+function appendContextualMenu(element) {
+    const contextHtml = `
+    
+
+    <button class="Btn-TaiebAnalytix-contextual-menu">
+
+        <div class="sign-TaiebAnalytix-contextual-menu">
+        <span>
+        <i class="fa-regular fa-heart fa-2xs"></i>
+        </span>
+        </div>
+
+        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+    </button>
+
+    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-blue">
+
+        <div class="sign-TaiebAnalytix-contextual-menu">
+      <span>
+        <i class="fa-regular fa-heart fa-2xs"></i>
+        </span>
+        </div>
+
+        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+    </button>
+    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-black">
+
+        <div class="sign-TaiebAnalytix-contextual-menu">
+        <span>
+        <i class="fa-regular fa-heart fa-2xs"></i>
+        </span>
+        </div>
+
+        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+    </button>
+    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-green">
+
+        <div class="sign-TaiebAnalytix-contextual-menu">
+        <span>
+        <i class="fa-regular fa-heart fa-2xs"></i>
+        </span>
+        </div>
+
+        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+    </button>
+
+    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-orange">
+
+        <div class="sign-TaiebAnalytix-contextual-menu">
+        <span>
+        <i class="fa-regular fa-heart fa-2xs"></i>
+        </span>
+        </div>
+
+        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+    </button>
+
+
+    `;
+    const contextualMenu = document.createElement('div');
+    contextualMenu.innerHTML = contextHtml;
+    contextualMenu.className = 'container-TaiebAnalytix-contextual-menu'; // Add any classes or styles here
+    element.appendChild(contextualMenu); // Append the menu to the matched element
+}
+
+// Set up the MutationObserver to monitor for new elements with the specified selector
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(node => {
+                // Check if the new node is an element and matches the selector
+                if (node.nodeType === Node.ELEMENT_NODE && node.matches('[data-testid^="history-item-"]')) {
+                    appendContextualMenu(node); // Append the contextual menu to the matching element
+                }
+            });
+        }
+    });
+});
+
+// Configuration for the observer (what changes to observe)
+const config = {
+    childList: true,  // Look for addition/removal of child elements
+    subtree: true     // Look within the entire subtree
+};
+
+// Start observing the document's body or a specific container
+observer.observe(document.body, config);

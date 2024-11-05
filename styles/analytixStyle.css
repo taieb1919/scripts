@@ -315,7 +315,7 @@ button:hover {
 }
 
 
-.TaiebAnalytix-Modal-form{
+.TaiebAnalytix-Modal-form {
 
     display: flex;
     flex-direction: column;
@@ -330,14 +330,16 @@ button:hover {
 .TaiebAnalytix-Modal-form input:last-of-type {
     margin-bottom: 20px; /* Space between last input and buttons */
 }
+
 /*#endregion Modal*/
 
 
 /*#region Radio button*/
 
-.radio-input-TaiebAnalytix-radio_button{
+.radio-input-TaiebAnalytix-radio_button {
     max-width: 50%;
 }
+
 .radioContainer-TaiebAnalytix-radio_button {
     display: flex;
     /*justify-content: center;    !* Center horizontally *!*/
@@ -530,7 +532,7 @@ button:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    
+
 }
 
 .taieb-btn.red-btn {
@@ -580,6 +582,115 @@ button:hover {
 }
 
 /*#endregion Btn Taieb*/
+
+
+/*#region contextual-menu*/
+
+.Btn-TaiebAnalytix-contextual-menu {
+    --colorContext: #ff4141;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: var(--colorContext);
+    padding: 0;
+}
+
+/* plus sign */
+.sign-TaiebAnalytix-contextual-menu {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-TaiebAnalytix-contextual-menu svg {
+    width: 10px;
+}
+
+
+.sign-TaiebAnalytix-contextual-menu svg path {
+    fill: white;
+}
+
+.sign-TaiebAnalytix-contextual-menu span {
+    width: 8px;
+    padding-right: 6px;
+}
+
+.sign-TaiebAnalytix-contextual-menu span i {
+    fill: white;
+}
+
+/* text */
+.text-TaiebAnalytix-contextual-menu {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+
+/* hover effect on button width */
+.Btn-TaiebAnalytix-contextual-menu:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+    background-color: var(--colorContext);
+}
+
+.Btn-TaiebAnalytix-contextual-menu:hover .sign-TaiebAnalytix-contextual-menu {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 2px;
+    background-color: var(--colorContext);
+}
+
+/* hover effect button's text */
+.Btn-TaiebAnalytix-contextual-menu:hover .text-TaiebAnalytix-contextual-menu {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+    font-size: 13px;
+}
+
+/* button click effect*/
+.Btn-TaiebAnalytix-contextual-menu:active {
+    transform: translate(2px, 2px);
+}
+
+
+.Btn-TaiebAnalytix-contextual-menu.Btn-contextual-menu-blue {
+    --colorContext: #0861c6;
+}
+
+.Btn-TaiebAnalytix-contextual-menu.Btn-contextual-menu-black {
+    --colorContext: #090000;
+}
+
+.Btn-TaiebAnalytix-contextual-menu.Btn-contextual-menu-green {
+    --colorContext: #09ca35;
+}
+
+.Btn-TaiebAnalytix-contextual-menu.Btn-contextual-menu-orange {
+    --colorContext: #ed5608;
+}
+
+
+/*#endregion contextual-menu */
 
 
 
