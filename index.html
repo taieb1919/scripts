@@ -2,71 +2,48 @@
 <html lang="en">
 <head>
     <style>
-
-
+        .parent-container {
+            position: relative;
+            width: 450px;
+        }
     </style>
-    <link rel="stylesheet" href="styles/analytixStyle.css">
-    <link rel="stylesheet" href="styles/css/all.min.css">
+    <link rel="stylesheet" href="styles/analytixStyle.css"/>
+    <link rel="stylesheet" href="styles/css/all.min.css"/>
 </head>
-<body style="min-height:650px;">
-
+<body style="min-height: 650px">
 <h1>Popup/Modal Windows without JavaScript</h1>
+<div class="parent-container">
+    <div class="container-TaiebAnalytix-contextual-menu">
 
-<div class="container-TaiebAnalytix-contextual-menu">
-    <button class="Btn-TaiebAnalytix-contextual-menu">
+        <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-blue" taieb-data-id="telegram-Send">
+            <div class="sign-TaiebAnalytix-contextual-menu">
+                <span><i class="fa-brands fa-telegram fa-2xs"></i></span>
+            </div>
+            <div class="text-TaiebAnalytix-contextual-menu">Send Telegram</div>
+        </button>
 
-        <div class="sign-TaiebAnalytix-contextual-menu">
-        <span>
-        <i class="fa-regular fa-heart fa-2xs"></i>
-        </span>
-        </div>
+        <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-black" taieb-data-id="Save-in-data-base">
+            <div class="sign-TaiebAnalytix-contextual-menu">
+                <span><i class="fa-solid fa-up-right-from-square fa-2xs"></i></span>
+            </div>
+            <div class="text-TaiebAnalytix-contextual-menu"> Save in data Base</div>
+        </button>
 
-        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
-    </button>
+        <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-green" taieb-data-id="Update-Ticket-Stake">
+            <div class="sign-TaiebAnalytix-contextual-menu">
+                <span><i class="fa-regular fa-money-bill-1 fa-2xs"></i></span>
+            </div>
+            <div class="text-TaiebAnalytix-contextual-menu"> Update Ticket Stake</div>
+        </button>
 
-    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-blue">
+        <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-orange">
+            <div class="sign-TaiebAnalytix-contextual-menu">
+                <span><i class="fa-regular fa-heart fa-2xs"></i></span>
+            </div>
+            <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
+        </button>
 
-        <div class="sign-TaiebAnalytix-contextual-menu">
-      <span>
-        <i class="fa-regular fa-heart fa-2xs"></i>
-        </span>
-        </div>
-
-        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
-    </button>
-    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-black">
-
-        <div class="sign-TaiebAnalytix-contextual-menu">
-        <span>
-        <i class="fa-regular fa-heart fa-2xs"></i>
-        </span>
-        </div>
-
-        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
-    </button>
-    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-green">
-
-        <div class="sign-TaiebAnalytix-contextual-menu">
-        <span>
-        <i class="fa-regular fa-heart fa-2xs"></i>
-        </span>
-        </div>
-
-        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
-    </button>
-
-    <button class="Btn-TaiebAnalytix-contextual-menu Btn-contextual-menu-orange">
-
-        <div class="sign-TaiebAnalytix-contextual-menu">
-        <span>
-        <i class="fa-regular fa-heart fa-2xs"></i>
-        </span>
-        </div>
-
-        <div class="text-TaiebAnalytix-contextual-menu">Logout</div>
-    </button>
+    </div>
 </div>
-
 </body>
-
 </html>
