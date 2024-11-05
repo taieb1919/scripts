@@ -346,9 +346,7 @@ function GetBetIdentity(element) {
 
 function GetBetInfo(element) {
     const allSpansArray = Array.from(element.querySelectorAll('span'));
-    allSpansArray.forEach(x => {
-        console.log(x.textContent);
-    })
+    
     const spanMise = allSpansArray.find(el => el.textContent.trim() === "Mise")?.parentElement.lastElementChild;
     const spanMiseFreeBets = allSpansArray.find(el => el.textContent.toLowerCase().trim() === "Mise Freebets".toLowerCase().trim())?.parentElement.lastElementChild;
     const spanComboBooster = allSpansArray.find(el => el.textContent.trim() === "Gains Combo booster".trim())?.parentElement.lastElementChild;
