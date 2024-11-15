@@ -7,6 +7,10 @@ const files = [
     '../js/kernel.js',
     '../js/modal.js',
     '../js/winamax/WinamaxEngine.js',
+    '../js/winamax/WinamaxEngine.ContextualMenu.js',
+    '../js/winamax/WinamaxEngine.MainMenu.js',
+    '../js/winamax/WinamaxEngine.NodesReaders.js',
+    '../js/winamax/WinamaxEngine.SportsDictionary.js',
 
 
 ]; // List of JavaScript files to merge
